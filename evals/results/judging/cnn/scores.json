@@ -1,0 +1,51 @@
+{
+  "R1": {
+    "items": {"N1": 1, "N2": 0.5, "N3": 0.5, "N4": 1, "X1": 0.5, "X2": 1, "X3": 0.5},
+    "penalties": [],
+    "total": 8.5,
+    "strength": "Concise, accurate verdict (real users pass, do not chase 26) with clean, file-specific agent prompts and a clear 'what the report cannot tell me' section.",
+    "mistake": "Thin on the lab vs field explanation (no network/repeat-visit/cache framing), omits the ~2.4 MB unused JS total and the 3,460 ms Optimizely figure, owner-facing steps have no done-checks, and owners are lumped ('editorial, product, and ad operations').",
+    "words": 968
+  },
+  "R2": {
+    "items": {"N1": 1, "N2": 1, "N3": 1, "N4": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 12,
+    "strength": "Strong prioritization tied to field data (INP headroom of 45 ms), every heavy hitter cited with report numbers, each fix has owner, effort and a 'done when' check, and image/CSS items correctly deprioritized.",
+    "mistake": "Small unhedged assumptions: states most visitors are returning on warm caches, calls the 5,358 ms and @font-face block 'inline', and treats robots-txt as a definite failure though the report shows 0 rows with no detail.",
+    "words": 1892
+  },
+  "R3": {
+    "items": {"N1": 1, "N2": 0.5, "N3": 0.5, "N4": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 10,
+    "strength": "Well-structured cards with owner, effort and acceptance checks, and careful handling of vendor items (Optimizely, script.ac, Conversant, RTB House, wmcdp.io) as hand-offs.",
+    "mistake": "Leads with a large dev-L first-party JS project, explains the lab/field gap only as 'a simulated slow phone', omits the ~2.4 MB unused JS total and the 3,460 ms Optimizely figure, and misreads the cookie-sync row (2.1 KiB is minification savings, not unused code).",
+    "words": 2007
+  },
+  "R4": {
+    "items": {"N1": 1, "N2": 1, "N3": 1, "N4": 0.5, "X1": 1, "X2": 0.5, "X3": 1},
+    "penalties": [],
+    "total": 11,
+    "strength": "Thorough and correct on the heavy hitters (21 MB, 5 MB video, 2.4 MB unused JS, Optimizely ~3.5 s, 623 third parties) with a good field vs lab explanation and detailed prompts.",
+    "mistake": "Over-rotates for a passing site (calls the first-visit experience 'very bad', five large fixes) and is jargon-heavy for a non-developer; minor stretches like asserting the video autoplays, summing two rows into '31 forced reflows (about 200 ms)', and an outdated-sounding claim that Chrome is restricting third-party cookies.",
+    "words": 1939
+  },
+  "R5": {
+    "items": {"N1": 1, "N2": 0.5, "N3": 1, "N4": 1, "X1": 1, "X2": 1, "X3": 0.5},
+    "penalties": [],
+    "total": 10.5,
+    "strength": "Balanced 'reduce risk and cost, not an emergency' framing, correctly notes cache savings only help repeat visits, and cites all the main heavy hitters accurately.",
+    "mistake": "Most fixes are coding-agent prompts with no named owner (video re-encode, font block, vendor tag removal in Fix 5), the lab/field gap explanation skips cold cache vs repeat visitors, and Fix 2 mislabels 874.9 KiB as 'cnn.com/' (it is the 1st-party total; cnn.com/ is 223.1 KiB).",
+    "words": 1526
+  },
+  "R6": {
+    "items": {"N1": 1, "N2": 1, "N3": 1, "N4": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 12,
+    "strength": "Clear verdict and correct gap explanation (cold cache, throttled CPU and network vs warm caches), every card has plain meaning, owner, effort and acceptance check, ad items routed to ad ops, and it explicitly says nothing was measured.",
+    "mistake": "Puts the 2.4 MB unused JavaScript entirely in 'skipped' despite it being one of the biggest lab items, and asserts a 'custom front end' platform without evidence from the report.",
+    "words": 2300
+  },
+  "ranking": ["R6", "R2", "R4", "R5", "R3", "R1"]
+}

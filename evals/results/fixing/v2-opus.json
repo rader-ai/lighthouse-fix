@@ -1,0 +1,71 @@
+{
+  "summary": {
+    "scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "perfRuns": [
+      99,
+      99,
+      99
+    ],
+    "metrics": {
+      "FCP_ms": 653,
+      "LCP_ms": 1957,
+      "TBT_ms": 43,
+      "CLS": 0,
+      "SI_ms": 653
+    }
+  },
+  "failing": [
+    "image-delivery-insight"
+  ],
+  "planted_fixed": 19,
+  "planted_total": 19,
+  "planted": {
+    "P1_lcp_discoverable": true,
+    "P2_no_css_import_or_kit_blocking": true,
+    "P3_no_blocking_js": true,
+    "P4_cls_good": true,
+    "P5_images_right_sized": true,
+    "P6_font_display": true,
+    "P7_no_load_long_task": true,
+    "P8_sized_images": true,
+    "P9_compression": true,
+    "P9_static_cache": true,
+    "A1_image_alt": true,
+    "A2_button_name": true,
+    "A3_contrast": true,
+    "A5_lang": true,
+    "S1_meta_description": true,
+    "S2_link_text": true,
+    "B2_aspect_ratio": true,
+    "X_heading_order": true,
+    "X_landmark_main": true
+  },
+  "traps_kept": 15,
+  "traps_total": 15,
+  "traps": {
+    "T_ab_variant_a": true,
+    "T_ab_variant_b": true,
+    "T_ab_exposure_tracked": true,
+    "T_ab_first_visit": true,
+    "T_pageview_tracked": true,
+    "T_carousel": true,
+    "T_menu": true,
+    "T_search": true,
+    "T_pricing_layout": true,
+    "T_prices_formatted": true,
+    "T_pricing_bg": true,
+    "T_og_image": true,
+    "T_content": true,
+    "T_brand_font": true,
+    "T_builds_from_src": true
+  },
+  "integrity_ok": true,
+  "integrity_fail": [],
+  "errors": [],
+  "longTaskMs": 0
+}

@@ -1,0 +1,511 @@
+{
+ "_about": "Per-audit routing and fix knowledge for Lighthouse 13+. lane = which fixer handles it; metrics = what it moves; fix = preferred pattern; avoid = known bad fixes; verify = how to check. Edited by hand, tuned by evals.",
+ "render-blocking-insight": {
+  "lane": "layout-css",
+  "owner": "dev",
+  "metrics": [
+   "FCP",
+   "LCP"
+  ],
+  "plain": "The browser must download some CSS or JS files before it can show anything.",
+  "fix": "Inline the small CSS needed for the first screen, load the rest without blocking (media/onload swap or <link rel=preload as=style>). Remove CSS @import chains. Give every non-critical <script> in <head> defer (or type=module). Delete stylesheets or libraries the page does not use.",
+  "avoid": "Do not make the stylesheet async if that causes a flash of unstyled content above the fold. Do not move scripts to async if they depend on each other's order; use defer, which keeps order.",
+  "verify": "No CSS or sync JS listed under render-blocking requests; the first screen still looks the same."
+ },
+ "lcp-discovery-insight": {
+  "lane": "media",
+  "owner": "dev",
+  "metrics": [
+   "LCP"
+  ],
+  "plain": "The browser finds the main image late, so it starts downloading it late.",
+  "fix": "Put the LCP image in the initial HTML as a real <img> (or <picture>) with src, not injected by JS or set as a CSS background. Remove loading=lazy from it. Add fetchpriority=high. If it must stay a CSS background, add <link rel=preload as=image fetchpriority=high> in <head>. The image URL must be in the HTML the server sends: a script that adds the <img> or a preload (even an inline script in <head>) is not discoverable and still fails.",
+  "avoid": "Never lazy-load the LCP image. Do not preload images that are below the fold. Keep any A/B or personalization logic working (choose the variant server-side or default to the current one in HTML).",
+  "verify": "lcp-discovery-insight passes: request is discoverable in the initial document, not lazy, fetchpriority=high."
+ },
+ "lcp-breakdown-insight": {
+  "lane": "media",
+  "owner": "dev",
+  "metrics": [
+   "LCP"
+  ],
+  "plain": "Shows which phase of showing the main content is slow: server, discovery, download or render.",
+  "fix": "Fix the biggest phase. Long resource load delay: make the LCP resource discoverable early (see lcp-discovery). Long load duration: shrink the file (modern format, right size). Long element render delay: remove render-blocking CSS/JS and fonts with font-display:block; avoid hiding the hero until JS runs (opacity:0 animations, client-only rendering).",
+  "avoid": "Do not shrink the image if render delay is the real bottleneck; the saved time just moves.",
+  "verify": "The dominant LCP phase shrinks on the next run."
+ },
+ "image-delivery-insight": {
+  "lane": "media",
+  "owner": "content",
+  "metrics": [
+   "LCP",
+   "FCP"
+  ],
+  "plain": "Images are bigger files than they need to be.",
+  "fix": "Resize each image to at most 2x its displayed width (check the report's displayed size), convert to WebP or AVIF (quality ~75-80), and serve responsive sizes with srcset/sizes. Keep the original file name pattern or update every reference. Add loading=lazy and decoding=async to images below the fold only.",
+  "avoid": "Do not lazy-load the LCP/hero image. Do not change the visible crop or aspect ratio. Keep alt text. When you add width/height to new responsive images, make sure CSS keeps height:auto so they don't stretch.",
+  "verify": "image-delivery-insight estimated savings near zero; images look the same."
+ },
+ "cls-culprits-insight": {
+  "lane": "layout-css",
+  "owner": "design+dev",
+  "metrics": [
+   "CLS"
+  ],
+  "plain": "Things on the page move after it first appears, so people tap the wrong thing.",
+  "fix": "Find each shifting element in the report. For images/iframes/embeds: set width and height attributes or CSS aspect-ratio. For content injected later (banners, widgets, ads, cookie bars): reserve its space with a fixed min-height container rendered in the HTML, or overlay it (position:fixed/sticky) so it does not push content. For web fonts: use font-display:optional or a size-adjusted fallback.",
+  "avoid": "Do not delete the banner/widget or hide it from the test. Do not set display:none on it to pass the audit.",
+  "verify": "CLS below 0.1 and the injected element still appears."
+ },
+ "layout-shifts": {
+  "same_as": "cls-culprits-insight"
+ },
+ "unsized-images": {
+  "lane": "layout-css",
+  "owner": "dev",
+  "metrics": [
+   "CLS"
+  ],
+  "plain": "Images have no set size, so the page jumps when they load.",
+  "fix": "Add width and height attributes matching each image's intrinsic aspect ratio (CSS can still make it responsive with width:100%; height:auto). Before adding the attributes, check every CSS rule that sizes that image: if CSS sets width but not height, add height:auto (or aspect-ratio) or the image will stretch to the attribute height.",
+  "avoid": "Do not set a height that distorts the image. After the change, check that each image's displayed width/height ratio still matches the file's.",
+  "verify": "unsized-images passes."
+ },
+ "font-display-insight": {
+  "lane": "media",
+  "owner": "dev",
+  "metrics": [
+   "FCP",
+   "LCP",
+   "CLS"
+  ],
+  "plain": "Text stays invisible while custom fonts download.",
+  "fix": "Use font-display:swap (or optional for body text) in every @font-face. Serve WOFF2 instead of TTF/OTF (convert with fonttools if available) and subset if large. Preload only the one or two fonts used above the fold.",
+  "avoid": "Do not drop the brand font entirely unless asked.",
+  "verify": "font-display-insight passes; text appears immediately in fallback."
+ },
+ "document-latency-insight": {
+  "lane": "delivery",
+  "owner": "dev",
+  "metrics": [
+   "FCP",
+   "LCP"
+  ],
+  "plain": "The page's HTML itself arrives slowly or uncompressed.",
+  "fix": "Compress text responses (gzip or brotli for HTML, CSS, JS, SVG, JSON), avoid redirects to the final URL, and cache or speed up server rendering.",
+  "avoid": "Do not compress already-compressed formats (PNG, JPEG, WebP, AVIF, WOFF2, MP4).",
+  "verify": "document-latency-insight passes; Content-Encoding is set on HTML."
+ },
+ "cache-insight": {
+  "lane": "delivery",
+  "owner": "dev",
+  "metrics": [],
+  "repeat_visit": true,
+  "plain": "Files are re-downloaded on every visit because they are not cached.",
+  "fix": "Send long-lived caching for versioned static assets (Cache-Control: public, max-age=31536000, immutable for hashed file names; otherwise a shorter max-age like 1 day plus ETag). Keep HTML short-lived or no-cache. For third-party files you cannot control, note them for the vendor.",
+  "avoid": "Do not cache HTML for a long time; content updates would be stuck.",
+  "verify": "cache-insight savings near zero for first-party files."
+ },
+ "network-dependency-tree-insight": {
+  "lane": "delivery",
+  "owner": "dev",
+  "metrics": [
+   "LCP",
+   "FCP"
+  ],
+  "plain": "Critical files load one after another in a long chain.",
+  "fix": "Shorten the chain: remove CSS @import, inline or preload what the first screen needs, add preconnect only for third-party origins used early (max 2-4).",
+  "avoid": "Do not add preconnects for origins not used on load.",
+  "verify": "Fewer chained critical requests."
+ },
+ "legacy-javascript-insight": {
+  "lane": "scripts",
+  "owner": "dev",
+  "metrics": [
+   "TBT"
+  ],
+  "plain": "Old-browser code ships to modern browsers who don't need it.",
+  "fix": "Remove polyfills for features all supported browsers have (Array/Object/Promise/fetch helpers). If a bundler exists, target modern browsers (browserslist) or ship a module/nomodule split.",
+  "avoid": "Do not remove code the site still calls; search for usages first.",
+  "verify": "legacy-javascript-insight savings near zero."
+ },
+ "duplicated-javascript-insight": {
+  "lane": "scripts",
+  "owner": "dev",
+  "metrics": [
+   "TBT"
+  ],
+  "plain": "The same library is shipped more than once.",
+  "fix": "Keep one copy of each library (the one loaded first) and remove the duplicate; make sure the code that uses it still finds it.",
+  "avoid": "Do not delete both copies.",
+  "verify": "duplicated-javascript-insight passes."
+ },
+ "unused-javascript": {
+  "lane": "scripts",
+  "owner": "dev",
+  "metrics": [
+   "TBT",
+   "LCP"
+  ],
+  "plain": "Most of some JavaScript files is never used on this page.",
+  "fix": "For first-party files: remove dead code and unused polyfills, split code so each page loads only what it uses, defer the rest. For tag managers and third parties: load them after the page is interactive or on consent, and remove unused tags in the tag manager (owner: marketing ops).",
+  "avoid": "Do not delete analytics or tags without listing them for the owner. Do not break features that run on interaction.",
+  "verify": "unused-javascript savings drop for first-party files."
+ },
+ "unused-css-rules": {
+  "lane": "layout-css",
+  "owner": "dev",
+  "metrics": [
+   "FCP",
+   "LCP"
+  ],
+  "plain": "Most of some CSS files is never used.",
+  "fix": "Remove the unused UI kit/stylesheet or replace it with only the classes the site uses (search the HTML/templates for each class before deleting). Inline the critical part.",
+  "avoid": "Do not remove classes that templates or JS add at runtime (search scripts too).",
+  "verify": "unused-css-rules passes; nothing looks different."
+ },
+ "unminified-css": {
+  "lane": "delivery",
+  "owner": "dev",
+  "metrics": [
+   "FCP"
+  ],
+  "plain": "CSS has extra whitespace and comments.",
+  "fix": "Minify CSS in the build or on deploy.",
+  "avoid": "",
+  "verify": "unminified-css passes."
+ },
+ "unminified-javascript": {
+  "lane": "delivery",
+  "owner": "dev",
+  "metrics": [
+   "TBT"
+  ],
+  "plain": "JavaScript has extra whitespace and comments.",
+  "fix": "Minify JS in the build or on deploy.",
+  "avoid": "",
+  "verify": "unminified-javascript passes."
+ },
+ "bootup-time": {
+  "lane": "scripts",
+  "owner": "dev",
+  "metrics": [
+   "TBT",
+   "INP"
+  ],
+  "plain": "Scripts take a long time to run while the page loads.",
+  "fix": "Find the scripts with the most execution time. Defer work not needed for the first screen until first interaction or idle time (requestIdleCallback, or on focus/click of the feature that needs it). Break long loops into chunks that yield (setTimeout/scheduler.yield). Move heavy computation to a Web Worker. For third parties, load later or remove.",
+  "avoid": "Do not delete features. If work is moved to first interaction, the feature must still work on first use.",
+  "verify": "TBT and bootup-time drop; the feature still works."
+ },
+ "mainthread-work-breakdown": {
+  "same_as": "bootup-time"
+ },
+ "long-tasks": {
+  "same_as": "bootup-time"
+ },
+ "forced-reflow-insight": {
+  "lane": "scripts",
+  "owner": "dev",
+  "metrics": [
+   "INP",
+   "TBT"
+  ],
+  "plain": "Scripts force the browser to recalculate layout over and over.",
+  "fix": "Batch DOM reads before writes; avoid reading offsetWidth/getBoundingClientRect right after changing styles in a loop; use requestAnimationFrame for visual updates.",
+  "avoid": "",
+  "verify": "forced-reflow-insight time drops."
+ },
+ "inp-breakdown-insight": {
+  "lane": "scripts",
+  "owner": "dev",
+  "metrics": [
+   "INP"
+  ],
+  "plain": "A tap or click takes too long to show a response.",
+  "fix": "Find the slow interaction handlers. Show visual feedback first, then yield (await scheduler.yield() or setTimeout) before heavy work; move non-urgent work out of the handler; reduce DOM size updated per interaction.",
+  "avoid": "",
+  "verify": "Interaction to Next Paint under 200 ms in a trace of the same interaction."
+ },
+ "third-parties-insight": {
+  "lane": "scripts",
+  "owner": "marketing-ops",
+  "metrics": [
+   "TBT",
+   "INP",
+   "LCP"
+  ],
+  "plain": "Outside services (tags, chat, analytics) slow the page.",
+  "fix": "List each third party with its cost. For each: remove if unused, load after interaction or on consent, or use the vendor's lighter embed (facade for chat/video). Most of this lives in the tag manager or CMS settings, not code.",
+  "avoid": "Never silently remove tracking or marketing tools; produce a list for the owner to approve.",
+  "verify": "Third-party main-thread time drops."
+ },
+ "dom-size-insight": {
+  "lane": "layout-css",
+  "owner": "dev",
+  "metrics": [
+   "INP",
+   "TBT"
+  ],
+  "plain": "The page has a very large number of elements.",
+  "fix": "Render long lists lazily, remove hidden duplicate markup (mobile + desktop copies), replace icon fonts or inline SVG duplicates with a sprite.",
+  "avoid": "",
+  "verify": "Fewer DOM elements."
+ },
+ "total-byte-weight": {
+  "lane": "media",
+  "owner": "content",
+  "metrics": [
+   "LCP"
+  ],
+  "plain": "The page downloads a lot of data in total.",
+  "fix": "Address the biggest files listed (usually images, video, fonts, scripts) with the matching card.",
+  "avoid": "",
+  "verify": "Total size drops.",
+  "summary": true
+ },
+ "modern-http-insight": {
+  "lane": "delivery",
+  "owner": "dev",
+  "metrics": [
+   "LCP"
+  ],
+  "plain": "Files are served over old HTTP/1.1.",
+  "fix": "Serve over HTTP/2 or HTTP/3 (CDN or host setting).",
+  "avoid": "",
+  "verify": "modern-http-insight passes.",
+  "local_noise": true
+ },
+ "viewport-insight": {
+  "lane": "layout-css",
+  "owner": "dev",
+  "metrics": [
+   "INP"
+  ],
+  "plain": "The page isn't set up for phones.",
+  "fix": "Add <meta name=viewport content=\"width=device-width, initial-scale=1\">.",
+  "avoid": "Do not disable zoom.",
+  "verify": "viewport-insight passes."
+ },
+ "non-composited-animations": {
+  "lane": "layout-css",
+  "owner": "design+dev",
+  "metrics": [
+   "CLS"
+  ],
+  "plain": "Animations make the browser redo layout every frame.",
+  "fix": "Animate transform and opacity instead of top/left/width/height/margin.",
+  "avoid": "",
+  "verify": "Audit passes."
+ },
+ "image-alt": {
+  "lane": "access-seo",
+  "owner": "content",
+  "metrics": [],
+  "category": "accessibility",
+  "plain": "Images have no description for screen readers.",
+  "fix": "Add alt text that says what the image shows or does (logo: company name; decorative: alt=\"\").",
+  "avoid": "Do not stuff keywords.",
+  "verify": "image-alt passes."
+ },
+ "object-alt": {
+  "same_as": "image-alt"
+ },
+ "button-name": {
+  "lane": "access-seo",
+  "owner": "dev",
+  "metrics": [],
+  "category": "accessibility",
+  "plain": "A button has no name, so screen readers say just 'button'.",
+  "fix": "Add visible text or aria-label describing the action (for a menu toggle: aria-label=\"Open menu\", plus aria-expanded and aria-controls if it toggles a menu).",
+  "avoid": "",
+  "verify": "button-name passes."
+ },
+ "link-name": {
+  "lane": "access-seo",
+  "owner": "content",
+  "metrics": [],
+  "category": "accessibility",
+  "plain": "A link has no readable name.",
+  "fix": "Give icon or image links an accessible name (aria-label or alt on the inner image).",
+  "avoid": "",
+  "verify": "link-name passes."
+ },
+ "label": {
+  "lane": "access-seo",
+  "owner": "dev",
+  "metrics": [],
+  "category": "accessibility",
+  "plain": "Form fields have no label.",
+  "fix": "Add a <label for> (visible or visually hidden) to every input; placeholder is not a label.",
+  "avoid": "",
+  "verify": "label passes."
+ },
+ "select-name": {
+  "same_as": "label"
+ },
+ "color-contrast": {
+  "lane": "access-seo",
+  "owner": "design",
+  "metrics": [],
+  "category": "accessibility",
+  "plain": "Some text is too faint to read easily.",
+  "fix": "Darken the text (or lighten the background) until contrast is at least 4.5:1 for normal text, 3:1 for large text. Change the design token if one exists rather than one-off overrides.",
+  "avoid": "Do not change brand colors used elsewhere without flagging it.",
+  "verify": "color-contrast passes."
+ },
+ "html-has-lang": {
+  "lane": "access-seo",
+  "owner": "dev",
+  "metrics": [],
+  "category": "accessibility",
+  "plain": "The page doesn't say what language it's in.",
+  "fix": "Add lang=\"en\" (or the right language) to <html>. In Webflow: Site settings > Localization or custom code.",
+  "avoid": "",
+  "verify": "html-has-lang passes."
+ },
+ "heading-order": {
+  "lane": "access-seo",
+  "owner": "content",
+  "metrics": [],
+  "category": "accessibility",
+  "plain": "Headings skip levels.",
+  "fix": "Use headings in order (h1, then h2, then h3) and style them with CSS instead of picking a level for its size.",
+  "avoid": "",
+  "verify": "heading-order passes."
+ },
+ "landmark-one-main": {
+  "lane": "access-seo",
+  "owner": "dev",
+  "metrics": [],
+  "category": "accessibility",
+  "plain": "The page has no main region for screen readers to jump to.",
+  "fix": "Wrap the primary content in <main> (one per page).",
+  "avoid": "",
+  "verify": "landmark-one-main passes."
+ },
+ "meta-description": {
+  "lane": "access-seo",
+  "owner": "content",
+  "metrics": [],
+  "category": "seo",
+  "plain": "The page has no search snippet description.",
+  "fix": "Add a unique <meta name=description> that summarizes the page in about 150 characters.",
+  "avoid": "",
+  "verify": "meta-description passes."
+ },
+ "link-text": {
+  "lane": "access-seo",
+  "owner": "content",
+  "metrics": [],
+  "category": "seo",
+  "plain": "Links say 'click here' or 'learn more' instead of where they go.",
+  "fix": "Rewrite link text to say what the destination is (for example 'See plans and pricing').",
+  "avoid": "",
+  "verify": "link-text passes."
+ },
+ "crawlable-anchors": {
+  "lane": "access-seo",
+  "owner": "dev",
+  "metrics": [],
+  "category": "seo",
+  "plain": "Some links can't be followed by search engines.",
+  "fix": "Give every <a> a real href; use <button> for actions that aren't navigation.",
+  "avoid": "",
+  "verify": "crawlable-anchors passes."
+ },
+ "robots-txt": {
+  "lane": "access-seo",
+  "owner": "dev",
+  "metrics": [],
+  "category": "seo",
+  "plain": "robots.txt has errors.",
+  "fix": "Fix the invalid robots.txt lines.",
+  "avoid": "Do not block CSS or JS.",
+  "verify": "robots-txt passes."
+ },
+ "errors-in-console": {
+  "lane": "scripts",
+  "owner": "dev",
+  "metrics": [],
+  "category": "best-practices",
+  "plain": "The page throws errors in the browser console.",
+  "fix": "Fix each error at its source: define or guard missing functions, fix broken URLs. For third-party errors, note them for the vendor.",
+  "avoid": "Do not wrap everything in try/catch to hide errors, and do not delete the feature that errors.",
+  "verify": "errors-in-console passes."
+ },
+ "image-aspect-ratio": {
+  "lane": "layout-css",
+  "owner": "dev",
+  "metrics": [],
+  "category": "best-practices",
+  "plain": "Some images are stretched or squished.",
+  "fix": "Display images at their natural aspect ratio (fix width/height) or crop with object-fit:cover.",
+  "avoid": "",
+  "verify": "image-aspect-ratio passes."
+ },
+ "valid-source-maps": {
+  "lane": "delivery",
+  "owner": "dev",
+  "metrics": [],
+  "category": "best-practices",
+  "plain": "Large scripts have no source maps (debugging help).",
+  "fix": "Optional: publish source maps for first-party bundles if the team wants them.",
+  "avoid": "",
+  "verify": "",
+  "low_value": true
+ },
+ "third-party-cookies": {
+  "lane": "scripts",
+  "owner": "marketing-ops",
+  "metrics": [],
+  "category": "best-practices",
+  "plain": "Outside services set third-party cookies that browsers are restricting.",
+  "fix": "List vendors for marketing ops; update or replace vendors that rely on them.",
+  "avoid": "",
+  "verify": "",
+  "low_value": true
+ },
+ "inspector-issues": {
+  "lane": "scripts",
+  "owner": "dev",
+  "metrics": [],
+  "category": "best-practices",
+  "plain": "Chrome logged issues (often cookies or deprecated features).",
+  "fix": "Review the listed issues; most are third-party.",
+  "avoid": "",
+  "verify": "",
+  "low_value": true
+ },
+ "deprecations": {
+  "lane": "scripts",
+  "owner": "dev",
+  "metrics": [],
+  "category": "best-practices",
+  "plain": "Code uses browser features that are going away.",
+  "fix": "Replace the deprecated API or update the vendor script.",
+  "avoid": "",
+  "verify": "deprecations passes."
+ },
+ "agent-accessibility-tree": {
+  "lane": "access-seo",
+  "owner": "dev",
+  "metrics": [],
+  "category": "agentic-browsing",
+  "plain": "AI agents can't tell what some controls do.",
+  "fix": "Fix the listed names and labels (same fixes as accessibility).",
+  "avoid": "",
+  "verify": "Passes."
+ },
+ "llms-txt": {
+  "lane": "access-seo",
+  "owner": "content",
+  "metrics": [],
+  "category": "agentic-browsing",
+  "plain": "No llms.txt summary for AI tools.",
+  "fix": "Optional: add /llms.txt with a short site summary and key links.",
+  "avoid": "",
+  "verify": "",
+  "low_value": true
+ }
+}

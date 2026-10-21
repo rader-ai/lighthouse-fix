@@ -1,0 +1,12 @@
+{
+  "name": "lighthouse-fix-evals",
+  "private": true,
+  "type": "module",
+  "description": "Test harness for the lighthouse-fix skill: trap sites, Lighthouse runner, integrity checks and scorers.",
+  "dependencies": {
+    "@sparticuz/chromium": "153.0.0",
+    "chrome-launcher": "1.2.2",
+    "lighthouse": "13.5.0",
+    "puppeteer-core": "25.15.0"
+  }
+}

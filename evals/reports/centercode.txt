@@ -1,0 +1,85 @@
+SITE https://www.centercode.com/ (mobile, PageSpeed Insights, report Oct 21, 2026 8:37 AM PT)
+FIELD Core Web Vitals Assessment: Failed | LCP 1.3 s | INP 110 ms | CLS 0.24 | FCP 1 s | TTFB 0.6 s (latest 28 days, CrUX)
+SCORES Performance=67 Accessibility=85 Best Practices=69 SEO=92 Agentic Browsing=1/3
+LAB first-contentful-paint=2.3 s largest-contentful-paint=4.5 s total-blocking-time=170 ms cumulative-layout-shift=0.197 speed-index=4.9 s
+# render-blocking-insight [performance] Est savings of 450 ms (4 rows)
+  - website-files.com | 53.0 KiB | 1,200 ms
+  - cdn.prod.website-files.com/…/css/centercode-com.webflow.shared.773358581.css | 53.0 KiB | 1,200 ms
+# font-display-insight [performance] Est savings of 40 ms (7 rows)
+  - website-files.com
+  - cdn.prod.website-files.….woff2 | 40 ms
+# cls-culprits-insight [performance]  (6 rows)
+  - Total | 0.197
+  - NODE <div data-test-id="widget-wrapper" class="… bFhczN"> | 0.116
+# forced-reflow-insight [performance]  (2 rows)
+  - js.hs-analytics.net/…/1792596900000/6039523.js | 1 ms
+  - [unattributed] | 1 ms
+# lcp-discovery-insight [performance]  (0 rows)
+# network-dependency-tree-insight [performance]  (10 rows)
+  - https://cdn.prod.website-fil | NODE <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="an
+  - https://fonts.googleapis.com | NODE <link href="https://fonts.googleapis.com" rel="preconnect">
+# cache-insight [performance] Est savings of 390 KiB (49 rows)
+  - Hubspot marketing | 307 KiB
+  - js.hsforms.net/forms/v2.js | 5m | 197 KiB
+# legacy-javascript-insight [performance] Est savings of 23 KiB (10 rows)
+  - hubspotfeedback.com | 14.7 KiB
+  - js.hubspotfeedback.com/feedbackweb-new.js | 14.7 KiB
+# lcp-breakdown-insight [performance]  (4 rows)
+  - Time to first byte | 0 ms
+  - Resource load delay | 210 ms
+# third-parties-insight [performance]  (157 rows)
+  - hsappstatic.net | 781 KiB | 299 ms
+  - static.hsappstatic.net/…/bundles/visitor.js | 451 KiB | 142 ms
+# unused-css-rules [performance] Est savings of 170 KiB (7 rows)
+  - hsappstatic.net | 107.9 KiB | 85.1 KiB
+  - static.hsappstatic.net/…/stylesheets/hubspot-theme.stable.css | 53.9 KiB | 53.9 KiB
+# unminified-css [performance] Est savings of 9 KiB (2 rows)
+  - website-files.com | 53.0 KiB | 9.3 KiB
+  - cdn.prod.website-files.com/…/css/centercode-com.webflow.shared.773358581.css | 53.0 KiB | 9.3 KiB
+# bootup-time [performance] 1.5 s (19 rows)
+  - Google CDN cdn | 502 ms | 357 ms | 96 ms
+  - gstatic.com/…….js | 502 ms | 357 ms | 96 ms
+# mainthread-work-breakdown [performance] 2.8 s (7 rows)
+  - Script Evaluation | 1,395 ms
+  - Script Parsing & Compilation | 476 ms
+# unsized-images [performance]  (34 rows)
+  - website-files.com
+  - NODE <img alt="Amazon" loading="lazy" src="https://cdn.prod.website-files.com/6046bc2 | cdn.prod.website-files.…%20logo_Amazon.svg
+# unused-javascript [performance] Est savings of 1,316 KiB (23 rows)
+  - Google Tag Manager tag-manag | 882.9 KiB | 547.5 KiB
+  - googletagmanager.com/gtag/js | 199.0 KiB | 124.3 KiB
+# total-byte-weight [performance] Total size was 4,000 KiB (16 rows)
+  - Google CDN cdn | 1,051.5 KiB
+  - gstatic.com/…….js | 350.5 KiB
+# select-name [accessibility]  (1 rows)
+  - NODE <select id="…" required="" class
+# link-name [accessibility]  (2 rows)
+  - NODE <a href="https://www2.centercode.…
+  - NODE <a href="/" aria-current="page" class="w-inline-block w--current">
+# color-contrast [accessibility]  (140 rows)
+  - NODE <div class="subhead red-5 sm">
+  - NODE <div id="footer" class="footer">
+# html-has-lang [accessibility]  (1 rows)
+  - NODE <html data-wf-domain="www.centercode.com" data-wf-page="60426a790b66a202c074edfa
+# landmark-one-main [accessibility]  (1 rows)
+  - NODE <html data-wf-domain="www.centercode.com" data-wf-page="60426a790b66a202c074edfa
+# third-party-cookies [best-practices] 1 cookie found (2 rows)
+# errors-in-console [best-practices]  (2 rows)
+  - Other Google APIs/SDKs utili
+  - google.com/…/enterprise/anchor | requestStorageAccess: Permis
+# inspector-issues [best-practices]  (3 rows)
+  - Cookie
+  - app.hubspot.com/……
+# valid-source-maps [best-practices]  (19 rows)
+  - centercode.com 1st party
+  - centercode.…
+# image-aspect-ratio [best-practices]  (2 rows)
+  - website-files.com
+  - NODE <img class="image-74" src="https://cdn.prod.website-files.com/60426a790b66a213de | cdn.prod.website-files.….webp | 577 x 574 (1.01) | 800 x 574 (
+# link-text [seo] 1 link found (2 rows)
+  - centercode.com 1st party
+  - centercode.com/resources | See more
+# cumulative-layout-shift [agentic-browsing] 0.197 (0 rows)
+# agent-accessibility-tree [agentic-browsing]  (2 rows)
+  - Links must have discernible  | NODE <a href="https://www2.centercode.…
+  - Select element must have an  | NODE <select id="…" required="" class

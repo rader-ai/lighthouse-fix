@@ -1,0 +1,42 @@
+{
+  "centercode": {
+    "R1": "skill-opus",
+    "R2": "naive-opus",
+    "R3": "skill-haiku",
+    "R4": "skill-sonnet",
+    "R5": "naive-sonnet",
+    "R6": "naive-haiku"
+  },
+  "betabound": {
+    "R1": "naive-haiku",
+    "R2": "naive-opus",
+    "R3": "naive-sonnet",
+    "R4": "skill-haiku",
+    "R5": "skill-sonnet",
+    "R6": "skill-opus"
+  },
+  "uservolley": {
+    "R1": "naive-sonnet",
+    "R2": "skill-sonnet",
+    "R3": "skill-haiku",
+    "R4": "skill-opus",
+    "R5": "naive-haiku",
+    "R6": "naive-opus"
+  },
+  "govuk": {
+    "R1": "skill-opus",
+    "R2": "naive-opus",
+    "R3": "naive-sonnet",
+    "R4": "skill-sonnet",
+    "R5": "skill-haiku",
+    "R6": "naive-haiku"
+  },
+  "cnn": {
+    "R1": "naive-haiku",
+    "R2": "skill-opus",
+    "R3": "skill-haiku",
+    "R4": "naive-opus",
+    "R5": "naive-sonnet",
+    "R6": "skill-sonnet"
+  }
+}

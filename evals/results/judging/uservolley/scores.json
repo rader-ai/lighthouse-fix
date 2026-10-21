@@ -1,0 +1,53 @@
+{
+  "R1": {
+    "items": {"U1": 1, "U2": 1, "U3": 1, "U4": 1, "U5": 1, "X1": 0.5, "X2": 0.5, "X3": 0},
+    "penalties": [],
+    "total": 9.5,
+    "strength": "Correct, short priorities: LCP render delay first with fitting causes (opacity-0 entrance, hydration, Caveat via next/font), main landmark as a one-line fix, JS/CSS explicitly optional.",
+    "mistake": "No owner named for any fix, and the prompts never name the flagged CSS/JS files; 'landmark' and 'transpilation' go unexplained.",
+    "words": 730
+  },
+  "R2": {
+    "items": {"U1": 1, "U2": 1, "U3": 1, "U4": 1, "U5": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 12,
+    "strength": "Tightest scope: two fixes, everything else skipped with reasons, plain-meaning lines, owner and acceptance check per card, and hypotheses clearly labeled as unverified.",
+    "mistake": "Minor: the 'LCP would be about 1.9 s' figure is simple subtraction from a partial breakdown, stated a little more firmly than the report supports.",
+    "words": 1130
+  },
+  "R3": {
+    "items": {"U1": 0.5, "U2": 1, "U3": 1, "U4": 1, "U5": 0, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [
+      {"type": "P1", "points": -2, "why": "Claims 'The LCP image is discovered fine (lcp-discovery shows no failure)'; the report contains no lcp-discovery audit and does not say the LCP element is an image."}
+    ],
+    "total": 7.5,
+    "strength": "Good render-delay diagnosis with server-component, visible-start animation and Caveat-fallback fixes, plus owner and acceptance per card.",
+    "mistake": "Invents an lcp-discovery result and an LCP image, and promotes the small unused/legacy JS to the #2 'top three' fix above the landmark instead of treating it as minor.",
+    "words": 1070
+  },
+  "R4": {
+    "items": {"U1": 1, "U2": 1, "U3": 1, "U4": 1, "U5": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 12,
+    "strength": "Clear metric table, ordered likely causes for the 1,340 ms render delay, Next.js-specific fixes, and a 'done when' check on every card.",
+    "mistake": "Longest answer (about 1,480 words) for a page in good shape; the agent prompt's guardrails assume features (waitlist forms, A/B tests) the report never shows.",
+    "words": 1480
+  },
+  "R5": {
+    "items": {"U1": 1, "U2": 0.5, "U3": 0, "U4": 0.5, "U5": 1, "X1": 0.5, "X2": 1, "X3": 0.5},
+    "penalties": [],
+    "total": 8,
+    "strength": "Plainest and shortest: says nothing is failing, notes the missing field data, and keeps the JS and CSS items in proportion.",
+    "mistake": "Blames render delay partly on lazy-loading or image priority (load-side causes) and skips entrance animation and fonts; not Next.js-aware, no file names, and owners are only 'whoever owns the site'.",
+    "words": 560
+  },
+  "R6": {
+    "items": {"U1": 1, "U2": 1, "U3": 1, "U4": 1, "U5": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 12,
+    "strength": "Strong Next.js-aware diagnosis (opacity-0 animation, Caveat via next/font, ssr:false gating, next/script advice) with front-end-dev steps and a prompt for each fix.",
+    "mistake": "Calls the minor JS cleanup one of the 'two things worth doing', and stretches the report a bit ('nothing big is downloading', a 412 px viewport) beyond what it shows.",
+    "words": 1200
+  },
+  "ranking": ["R2", "R6", "R4", "R1", "R5", "R3"]
+}

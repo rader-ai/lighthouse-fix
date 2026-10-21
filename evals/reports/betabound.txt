@@ -1,0 +1,70 @@
+SITE https://www.betabound.com/ (mobile, PageSpeed Insights, report Oct 21, 2026 8:39 AM PT)
+FIELD Core Web Vitals Assessment: Failed | LCP p75 1.7 s (84% good) | INP p75 287 ms (28% good, 70% needs improvement, 2% poor) | CLS p75 0.08 (91% good) | FCP p75 1.6 s | TTFB p75 1.1 s (62% good, 15% poor) (latest 28 days, CrUX)
+SCORES Performance=60 Accessibility=85 Best Practices=96 SEO=77 Agentic Browsing=1/2
+LAB first-contentful-paint=5.3 s largest-contentful-paint=9.4 s total-blocking-time=70 ms cumulative-layout-shift=0 speed-index=5.9 s
+# cache-insight [performance] Est savings of 1,020 KiB (25 rows)
+  - betabound.com 1st party | 1,019 KiB
+  - betabound.com/…/fonts/fontawesome-all.js | None | 597 KiB
+# render-blocking-insight [performance] Est savings of 390 ms (6 rows)
+  - betabound.com 1st party | 19.1 KiB | 1,500 ms
+  - betabound.com/…/css/style.css | 13.9 KiB | 600 ms
+# image-delivery-insight [performance] Est savings of 96 KiB (5 rows)
+  - betabound.com 1st party | 105.9 KiB | 96.2 KiB
+  - betabound.com/…/_bg/noise.png | 91.4 KiB | 84.8 KiB
+# forced-reflow-insight [performance]  (5 rows)
+  - betabound.com/…/libs/modernizr.custom.min.js | 134 ms
+  - betabound.com/…/libs/modernizr.custom.min.js | 4 ms
+# network-dependency-tree-insight [performance]  (1 rows)
+  - https://betabound1.disqus.co | 300 ms
+# font-display-insight [performance] Est savings of 10 ms (2 rows)
+  - Google Fonts cdn
+  - fonts.gstatic.com/…….woff2 | 10 ms
+# viewport-insight [performance]  (1 rows)
+# legacy-javascript-insight [performance] Est savings of 13 KiB (4 rows)
+  - betabound.com 1st party | 13.0 KiB
+  - betabound.com/…/dist/new-tab.js | 13.0 KiB
+# dom-size-insight [performance]  (3 rows)
+  - Total elements | 818
+  - DOM depth | NODE <path fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8  | 21
+# lcp-breakdown-insight [performance]  (2 rows)
+  - Time to first byte | 0 ms
+  - Element render delay | 2,200 ms
+# third-parties-insight [performance]  (9 rows)
+  - Google Tag Manager tag-manag | 176 KiB | 237 ms
+  - googletagmanager.com/gtag/js | 176 KiB | 237 ms
+# unused-javascript [performance] Est savings of 133 KiB (4 rows)
+  - Google Tag Manager tag-manag | 175.5 KiB | 74.2 KiB
+  - googletagmanager.com/gtag/js | 175.5 KiB | 74.2 KiB
+# unminified-css [performance] Est savings of 4 KiB (2 rows)
+  - betabound.com 1st party | 13.9 KiB | 4.0 KiB
+  - betabound.com/…/css/style.css | 13.9 KiB | 4.0 KiB
+# unminified-javascript [performance] Est savings of 3 KiB (2 rows)
+  - betabound.com 1st party | 6.3 KiB | 2.5 KiB
+  - betabound.com/…/joyride/jquery.joyride-2.1.js | 6.3 KiB | 2.5 KiB
+# image-alt [accessibility]  (9 rows)
+  - NODE <img src="….svg">
+  - NODE <img src="….svg">
+# link-name [accessibility]  (34 rows)
+  - NODE <a href="/software/" data-toggle="tooltip" data-placement="top" data-custom-clas
+  - NODE <a href="https://betabound.com/partner-betas/">
+# object-alt [accessibility]  (4 rows)
+  - NODE <object type="image/svg+xml" data="https://betabound.com/wp-content/themes/betab
+  - NODE <object type="image/svg+xml" data="https://betabound.com/wp-content/themes/betab
+# heading-order [accessibility]  (1 rows)
+  - NODE <h4>
+# errors-in-console [best-practices]  (4 rows)
+  - AddThis social
+  - s7.addthis.com/…/300/addthis_widget.js | Failed to load resource: net
+# valid-source-maps [best-practices]  (5 rows)
+  - betabound.com 1st party
+  - betabound.com/…/fonts/fontawesome-all.js
+# link-text [seo] 1 link found (1 rows)
+  - collibra.… | Learn More
+# image-alt [seo]  (9 rows)
+  - NODE <img src="….svg">
+  - NODE <img src="….svg">
+# crawlable-anchors [seo]  (34 rows)
+  - NODE <a class="btn btn-personalize tour_personalize">
+  - NODE <a class="at-btn addthis_button_twitter" data-toggle="tooltip" data-placement="t
+# agent-accessibility-tree [agentic-browsing]  (1 rows)
+  - Links must have discernible  | NODE <a href="/software/" data-toggle="tooltip" data-placement="top" data-custom-clas

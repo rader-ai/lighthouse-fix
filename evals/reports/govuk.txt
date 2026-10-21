@@ -1,0 +1,27 @@
+SITE https://www.gov.uk/ (mobile, PageSpeed Insights, report Oct 21, 2026 8:39 AM PT)
+FIELD Core Web Vitals Assessment: Passed | LCP p75 0.7 s (97% good) | INP p75 108 ms (93% good) | CLS p75 0 (98% good) (latest 28 days, CrUX)
+SCORES Performance=76 Accessibility=100 Best Practices=100 SEO=100 Agentic Browsing=1/2
+LAB first-contentful-paint=1.8 s largest-contentful-paint=1.8 s total-blocking-time=0 ms cumulative-layout-shift=0.565 speed-index=1.8 s
+# render-blocking-insight [performance] Est savings of 880 ms (3 rows)
+  - www.gov.uk 1st party | 44.4 KiB | 1,050 ms
+  - gov.uk/…….css | 42.4 KiB | 900 ms
+# cls-culprits-insight [performance]  (3 rows)
+  - Total | 0.565
+  - NODE <main id="content" class="govuk-main-wrapper  govuk-!-padding-top-0"> | 0.565
+# network-dependency-tree-insight [performance]  (0 rows)
+# font-display-insight [performance] Est savings of 20 ms (3 rows)
+  - www.gov.uk 1st party
+  - gov.uk/…….woff2 | 20 ms
+# legacy-javascript-insight [performance] Est savings of 9 KiB (7 rows)
+  - www.gov.uk 1st party | 9.0 KiB
+  - gov.uk/…….js | 9.0 KiB
+# lcp-breakdown-insight [performance]  (2 rows)
+  - Time to first byte | 0 ms
+  - Element render delay | 190 ms
+# unused-css-rules [performance] Est savings of 39 KiB (2 rows)
+  - www.gov.uk 1st party | 41.6 KiB | 38.8 KiB
+  - gov.uk/…….css | 41.6 KiB | 38.8 KiB
+# unused-javascript [performance] Est savings of 26 KiB (2 rows)
+  - www.gov.uk 1st party | 39.8 KiB | 25.5 KiB
+  - gov.uk/…….js | 39.8 KiB | 25.5 KiB
+# cumulative-layout-shift [agentic-browsing] 0.565 (0 rows)

@@ -1,0 +1,58 @@
+{
+  "R1": {
+    "items": {"B1": 1, "B2": 1, "B3": 0.5, "B4": 0.5, "B5": 1, "B6": 1, "X1": 0.5, "X2": 1, "X3": 0.5},
+    "penalties": [],
+    "total": 12.5,
+    "strength": "Clear, correct verdict (INP fails, LCP/CLS pass), says plainly that lab TBT misses INP, and starts with measuring the real slow interaction instead of guessing.",
+    "mistake": "Never mentions the Modernizr 134 ms forced reflow or the viewport flag, owners are generic ('your developer'), and most fixes have no completion check.",
+    "words": 975
+  },
+  "R2": {
+    "items": {"B1": 1, "B2": 1, "B3": 1, "B4": 1, "B5": 1, "B6": 1, "X1": 1, "X2": 0.5, "X3": 1},
+    "penalties": [
+      {"type": "P1", "points": -2, "why": "'a subset with only the 20 to 30 icons the site actually uses' is an invented number not in the report"}
+    ],
+    "total": 13.5,
+    "strength": "Strong WordPress-specific INP fix list (header.php viewport, Font Awesome JS swap, Modernizr removal, AddThis removal, defer, Joyride on click, Disqus dequeue) with a TTFB fix ranked second.",
+    "mistake": "Invents specifics (20 to 30 icons; implies Bootstrap tooltips sit on all 34 flagged links) and leans on jargon (MutationObserver, APO, immutable) a non-developer would not follow.",
+    "words": 1730
+  },
+  "R3": {
+    "items": {"B1": 1, "B2": 1, "B3": 1, "B4": 1, "B5": 1, "B6": 1, "X1": 0.5, "X2": 1, "X3": 0}
+,
+    "penalties": [
+      {"type": "P2", "points": -1, "why": "States 'SEO and accessibility should go to 90s quickly' as an expected score outcome"}
+    ],
+    "total": 13,
+    "strength": "Honest framing: names report-backed INP suspects but labels them as guesses until measured, and ranks real-user TTFB as the second issue.",
+    "mistake": "No owner assigned to most fixes (only hosting), and it promises SEO/accessibility will reach the 90s.",
+    "words": 1287
+  },
+  "R4": {
+    "items": {"B1": 1, "B2": 1, "B3": 0.5, "B4": 0.5, "B5": 1, "B6": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 14,
+    "strength": "Every card has plain meaning, owner (dev, content, marketing ops, host), effort and a concrete acceptance check; careful not to invent the theme name.",
+    "mistake": "Treats the 597 KiB Font Awesome JS only as a caching problem ('if unsure, keep the file and cache it') rather than an INP suspect, and suggests fixing the AddThis load instead of removing the dead script.",
+    "words": 2578
+  },
+  "R5": {
+    "items": {"B1": 1, "B2": 1, "B3": 1, "B4": 1, "B5": 1, "B6": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [
+      {"type": "P1", "points": -2, "why": "Gives the theme path as 'wp-content/themes/betabound'; the report only shows a truncated 'wp-content/themes/betab' path"}
+    ],
+    "total": 14,
+    "strength": "Most complete field-vs-lab table and INP suspect list (viewport, Font Awesome JS with the DOM path evidence, Modernizr, Joyride, AddThis, Disqus, GTM), with WordPress-specific enqueue/defer fixes, an INP logger, and an explicit 'I have not measured anything'.",
+    "mistake": "Fills in the truncated theme folder name as 'betabound' and repeats it in both agent prompts as if confirmed.",
+    "words": 2761
+  },
+  "R6": {
+    "items": {"B1": 1, "B2": 1, "B3": 1, "B4": 1, "B5": 1, "B6": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 16,
+    "strength": "Correct verdict and lab-vs-field explanation, every INP suspect tied to its audit evidence, WordPress-aware fixes with a 'Done when' check, and the right owners (marketing ops for AddThis, Disqus and GTM).",
+    "mistake": "Makes the viewport tag fix #1 and says it 'alone could explain most of your INP' (plus a '15 minutes' estimate) when the report gives no detail on that audit; it is labeled a hypothesis, but it is overweighted.",
+    "words": 2541
+  },
+  "ranking": ["R6", "R5", "R4", "R2", "R3", "R1"]
+}

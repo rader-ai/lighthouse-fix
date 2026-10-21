@@ -1,0 +1,19 @@
+SITE https://www.uservolley.com/ (mobile, PageSpeed Insights, report Oct 21, 2026 8:39 AM PT)
+FIELD NO FIELD DATA (not enough Chrome users yet)
+SCORES Performance=93 Accessibility=98 Best Practices=100 SEO=100 Agentic Browsing=2/2
+LAB first-contentful-paint=0.9 s largest-contentful-paint=3.2 s total-blocking-time=20 ms cumulative-layout-shift=0 speed-index=2.3 s
+# render-blocking-insight [performance] Est savings of 130 ms (2 rows)
+  - uservolley.com 1st party | 9.5 KiB | 150 ms
+  - uservolley.com/…/chunks/0z7j66aygqpwb.css | 9.5 KiB | 150 ms
+# legacy-javascript-insight [performance] Est savings of 14 KiB (9 rows)
+  - uservolley.com 1st party | 13.8 KiB
+  - uservolley.com/…/chunks/0_qu17ua_qefw.js | 13.8 KiB
+# network-dependency-tree-insight [performance]  (0 rows)
+# lcp-breakdown-insight [performance]  (2 rows)
+  - Time to first byte | 0 ms
+  - Element render delay | 1,340 ms
+# unused-javascript [performance] Est savings of 28 KiB (2 rows)
+  - uservolley.com 1st party | 70.4 KiB | 27.8 KiB
+  - uservolley.com/…/chunks/0_qu17ua_qefw.js | 70.4 KiB | 27.8 KiB
+# landmark-one-main [accessibility]  (1 rows)
+  - NODE <html lang="en" class="h-full … caveat_28

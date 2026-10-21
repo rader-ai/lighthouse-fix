@@ -1,0 +1,55 @@
+{
+  "R1": {
+    "items": {"G1": 1, "G2": 1, "G3": 1, "G4": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 12,
+    "strength": "Calls the 0.565 CLS a likely cookie-less first-visit artifact, labels the guess, makes it a small low-priority dev fix with a clear done-when check, and says to leave the CSS/JS alone.",
+    "mistake": "Says outright that every first-time visitor gets this jump, which goes past the report's evidence. Also somewhat long for a page with little to do.",
+    "words": 1119
+  },
+  "R2": {
+    "items": {"G1": 1, "G2": 1, "G3": 0.5, "G4": 1, "X1": 1, "X2": 0.5, "X3": 1},
+    "penalties": [
+      {"type": "P1", "points": -2, "why": "Invents codebase specifics not in the report: 'alphagov frontend app' and 'govuk_publishing_components' per-component CSS mode."},
+      {"type": "P1", "points": -2, "why": "Invents a 'cookies_policy' cookie name and 'GDS Transport' font files (also 'Performance 76 and not about 95'); capped at -4."},
+      {"type": "P2", "points": -1, "why": "Says the Performance score 'should rise into the 90s' after Fix 1 and 'Fix 1 resolves' agentic browsing, stated as expected fact."}
+    ],
+    "total": 6,
+    "strength": "Clear field-vs-lab table with thresholds, and explains why CLS 0.565 drives the 76 score.",
+    "mistake": "Fills in GOV.UK internals it cannot know (repo names, cookie name, font) and promises a 90s score. It also gives the optional CSS split a full fix and agent prompt.",
+    "words": 1104
+  },
+  "R3": {
+    "items": {"G1": 1, "G2": 1, "G3": 1, "G4": 1, "X1": 1, "X2": 0.5, "X3": 0.5},
+    "penalties": [],
+    "total": 11,
+    "strength": "Puts priorities right (CLS worth checking but not urgent, skip nearly everything else) and protects accessibility and the no-JS experience.",
+    "mistake": "Names an owner for only one fix, and the summary uses LCP/INP/CLS without explaining them.",
+    "words": 903
+  },
+  "R4": {
+    "items": {"G1": 1, "G2": 1, "G3": 1, "G4": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 12,
+    "strength": "Most disciplined answer: nothing urgent, one optional card with plain meaning, owner, effort and acceptance check, and CSS/JS deliberately skipped with reasons. Guesses and unmeasured numbers are flagged.",
+    "mistake": "Says 'expect the score to rise' without a caveat, and the agent prompt is long for an optional task.",
+    "words": 961
+  },
+  "R5": {
+    "items": {"G1": 1, "G2": 1, "G3": 1, "G4": 0.5, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 11.5,
+    "strength": "Clean cards with plain meaning, owner, priority, effort and acceptance criteria, and everything is marked optional or low priority.",
+    "mistake": "Never mentions or explains the 76 Performance score versus the field results. It also builds three fix cards (CSS split, JS trim) when there is little to do.",
+    "words": 1003
+  },
+  "R6": {
+    "items": {"G1": 1, "G2": 1, "G3": 1, "G4": 0.5, "X1": 0.5, "X2": 1, "X3": 0.5},
+    "penalties": [],
+    "total": 10,
+    "strength": "Short and plain. It gets the verdict and priorities right, and the agent prompt asks only for a diagnosis before any change.",
+    "mistake": "Misstates the field data as 'CLS 0 for 98% of visits' (the report says 98% good). It doesn't explain the first-visit/no-cookie mechanism, and gives no done-check and only vague owners.",
+    "words": 547
+  },
+  "ranking": ["R4", "R1", "R5", "R3", "R6", "R2"]
+}

@@ -1,0 +1,68 @@
+SITE https://www.cnn.com/ (mobile, PageSpeed Insights, report Oct 21, 2026 8:39 AM PT)
+FIELD Core Web Vitals Assessment: Passed | LCP p75 1.4 s (89% good, 5% poor) | INP p75 155 ms (83% good, 5% poor) | CLS p75 0.01 (89% good, 5% poor) (latest 28 days, CrUX)
+SCORES Performance=26 Accessibility=96 Best Practices=54 SEO=92 Agentic Browsing=1/3
+LAB first-contentful-paint=8.9 s largest-contentful-paint=18.9 s total-blocking-time=2,610 ms cumulative-layout-shift=0 speed-index=15.3 s
+# cache-insight [performance] Est savings of 16,254 KiB (198 rows)
+  - cnn.com 1st party | 14,778 KiB
+  - media.cnn.com/…/prod/loop4-1.mp4 | 5m | 4,989 KiB
+# render-blocking-insight [performance] Est savings of 810 ms (2 rows)
+  - Optimizely analytics | 119.2 KiB | 3,460 ms
+  - cdn.optimizely.com/…/s/landingprod.js | 119.2 KiB | 3,460 ms
+# font-display-insight [performance] Est savings of 100 ms (9 rows)
+  - cnn.io
+  - ix.cnn.io/…/latest/cnnsans-regular.woff2 | 100 ms
+# forced-reflow-insight [performance]  (31 rows)
+  - cnn.com/ | 106 ms
+  - [unattributed] | 94 ms
+# network-dependency-tree-insight [performance]  (31 rows)
+  - https://tpc.googlesyndicatio | NODE <link rel="preconnect" href="//tpc.googlesyndication.com">
+  - https://pagead2.googlesyndic | NODE <link rel="preconnect" href="//pagead2.googlesyndication.com">
+# image-delivery-insight [performance] Est savings of 125 KiB (12 rows)
+  - cnn.com 1st party | 127.5 KiB | 114.5 KiB
+  - NODE <img src="https://media.cnn.….jpg | media.cnn.com/…/prod/bar-thumbnail-1.jpg | 66.7 KiB | 56.2 KiB
+# legacy-javascript-insight [performance] Est savings of 87 KiB (44 rows)
+  - Conversant analytics | 15.3 KiB
+  - secure.cdn.fastclick.net/…/latest/pubcid.min.js | 15.3 KiB
+# dom-size-insight [performance]  (3 rows)
+  - Total elements | 2,491
+  - DOM depth | NODE <span class="card__label-indicator"> | 28
+# lcp-breakdown-insight [performance]  (2 rows)
+  - Time to first byte | 110 ms
+  - Element render delay | 2,370 ms
+# third-parties-insight [performance]  (623 rows)
+  - script.ac | 85 KiB | 963 ms
+  - cadmus.script.ac/…/script.js | 85 KiB | 963 ms
+# mainthread-work-breakdown [performance] 19.6 s (7 rows)
+  - Script Evaluation | 7,211 ms
+  - Other | 5,780 ms
+# bootup-time [performance] 7.7 s (65 rows)
+  - cnn.com 1st party | 6,501 ms | 1,185 ms | 356 ms
+  - cnn.com/ | 5,358 ms | 469 ms | 166 ms
+# unused-javascript [performance] Est savings of 2,443 KiB (52 rows)
+  - cnn.com 1st party | 874.9 KiB | 506.9 KiB
+  - cnn.com/ | 223.1 KiB | 152.6 KiB
+# unminified-javascript [performance] Est savings of 10 KiB (5 rows)
+  - inline: // cookie-sync start | 4.0 KiB | 2.1 KiB
+# unused-css-rules [performance] Est savings of 264 KiB (5 rows)
+  - Unattributable | 298.6 KiB | 240.6 KiB
+  - @font-face { font-family: "c | 273.1 KiB | 215.5 KiB
+# total-byte-weight [performance] Total size was 21,481 KiB (13 rows)
+  - cnn.com 1st party | 14,585.9 KiB
+  - media.cnn.com/…/prod/loop4-1.mp4 | 4,989.0 KiB
+# link-name [accessibility]  (6 rows)
+  - NODE <a href="…
+# deprecations [best-practices] 2 warnings found (4 rows)
+  - RTB House AdPilot ad
+  - The Topics API is deprecated | invstatic101.creativecdn.….js
+# third-party-cookies [best-practices] 46 cookies found (54 rows)
+# errors-in-console [best-practices]  (17 rows)
+  - wmcdp.io
+  - receive.wmcdp.io/v1/reg | Failed to load resource: net
+# inspector-issues [best-practices]  (16 rows)
+# valid-source-maps [best-practices]  (26 rows)
+  - cnn.com 1st party
+  - cnn.com/…/202608.1.0/otBannerSdk.js
+# robots-txt [seo]  (0 rows)
+# agent-accessibility-tree [agentic-browsing]  (1 rows)
+  - Links must have discernible  | NODE <a href="…
+# llms-txt [agentic-browsing]  (0 rows)

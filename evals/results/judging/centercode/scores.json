@@ -1,0 +1,56 @@
+{
+  "R1": {
+    "items": {"C1": 1, "C2": 1, "C3": 1, "C4": 1, "C5": 1, "C6": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 16,
+    "strength": "Clear field-vs-lab framing, widget (0.116/0.197) and 34 unsized images as top CLS work, full Webflow click-paths with owners and done-when checks, plus a guarded agent prompt.",
+    "mistake": "Reverses the image-74 numbers (says file is 577x574 shown at 800x574; report shows displayed 577x574, actual 800x574); also the longest answer by far.",
+    "words": 2540,
+    "notes": "120x40 and 520px are labeled example/placeholder values, not penalized. 'Lab should drop below 0.1' is hedged, no P2."
+  },
+  "R2": {
+    "items": {"C1": 1, "C2": 1, "C3": 1, "C4": 1, "C5": 1, "C6": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [
+      {"type": "P1", "points": -2, "why": "Introduces a 'Vercel rebuild of centercode.com'; Vercel appears nowhere in REPORT.txt and is not inferable from it."}
+    ],
+    "total": 14,
+    "strength": "Correct CLS-first verdict with the widget and unsized images, and concrete, verifiable HubSpot/GTM fixes owned by marketing ops.",
+    "mistake": "Invents a Vercel rebuild not in the report, and reverses the image-74 dimensions; gives lab LCP/render-blocking a full fix track with more weight than the field data supports.",
+    "words": 1860
+  },
+  "R3": {
+    "items": {"C1": 1, "C2": 1, "C3": 1, "C4": 1, "C5": 1, "C6": 1, "X1": 0.5, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 15,
+    "strength": "Concise and accurate: correct 'needs improvement' framing of 0.24, Webflow click-paths grouped by owner, each with a pass check, and an honest note that the report is trimmed.",
+    "mistake": "Sends the 'See more' fix to the /resources page (the link is on the homepage pointing to /resources), and labels the widget 'HubSpot' as evidence while also saying the report doesn't identify it.",
+    "words": 1350
+  },
+  "R4": {
+    "items": {"C1": 1, "C2": 1, "C3": 1, "C4": 1, "C5": 1, "C6": 1, "X1": 1, "X2": 1, "X3": 1},
+    "penalties": [],
+    "total": 16,
+    "strength": "Best-calibrated: CLS first, lab LCP explicitly set aside, remaining 0.081 shift correctly derived, correct image-74 reading, Webflow click-paths per owner with checks, and explicitly states nothing was measured.",
+    "mistake": "Minor: suggests an example aria-label ('Company size') for a select whose purpose the report doesn't show; otherwise no factual errors found.",
+    "words": 1930
+  },
+  "R5": {
+    "items": {"C1": 1, "C2": 1, "C3": 0.5, "C4": 1, "C5": 1, "C6": 1, "X1": 0.5, "X2": 1, "X3": 0.5},
+    "penalties": [],
+    "total": 13.5,
+    "strength": "Accurate, tight diagnosis: CLS is the only field failure, widget plus unsized images, correct image-74 reading, and it tells the owner not to chase lab LCP.",
+    "mistake": "Fixes are mostly code-style agent prompts with thin Webflow click-paths; the accessibility and CSS fixes lack checks or a named owner.",
+    "words": 1350
+  },
+  "R6": {
+    "items": {"C1": 1, "C2": 1, "C3": 0.5, "C4": 0.5, "C5": 1, "C6": 1, "X1": 0.5, "X2": 1, "X3": 0.5},
+    "penalties": [
+      {"type": "P2", "points": -1, "why": "States outcomes as fact: 'Layout shift. This fixes the failing assessment.' and 'Third-party scripts and render-blocking CSS. This lowers the lab LCP.'"}
+    ],
+    "total": 11.5,
+    "strength": "Short, plain-language summary that gets the CLS-first priority and the widget/unsized-image culprits right.",
+    "mistake": "Factual errors: says CLS above 0.10 is 'poor' (0.1-0.25 is needs improvement) and says the logo link points to www2.centercode.com (the logo link is href='/'); owners and Webflow steps are vague.",
+    "words": 960
+  },
+  "ranking": ["R4", "R1", "R3", "R2", "R5", "R6"]
+}
