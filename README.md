@@ -84,10 +84,44 @@ cp -r lighthouse-fix/skills/lighthouse-fix ~/.claude/skills/
   <img src=".github/assets/flow-light.svg" alt="Five steps: your report, real-visitor triage, ranking, fix prompts, and routing each fix to its owner." width="100%">
 </picture>
 
-1. **Triage on real visitors.** Chrome UX Report field data decides what matters. A lab-only problem on a metric real users already pass goes to the bottom.
-2. **Rank what's left.** Uses Lighthouse's savings estimates, and weighs failing checks that report "0 ms" by how badly their metric fails, so they aren't dropped.
-3. **Write fix prompts an agent can run as-is.** One prompt per area (delivery, media, layout and CSS, scripts, accessibility and SEO) or one all-in-one prompt. Each names the exact files and elements, the preferred fix, what to avoid, a "done when" check and guardrails.
-4. **Send each fix to the right person.** Developers get code prompts. Marketing ops get tag manager steps. CMS owners (Webflow, WordPress, HubSpot) get click-paths instead of "edit the CSS".
+Here is one real run, on the Betabound homepage report from [`evals/reports/`](evals/reports/).
+
+### 1. What comes back
+
+A Lighthouse or PageSpeed report gives you two sets of numbers that often disagree. The **lab test** loads the page once on a simulated phone. **Real visitors** come from the Chrome UX Report: what actual Chrome users experienced over the last 28 days. Then there's a long list of flagged audits.
+
+<picture>
+  <source media="(max-width: 1011px) and (prefers-color-scheme: dark)" srcset=".github/assets/report-narrow-dark.svg">
+  <source media="(max-width: 1011px)" srcset=".github/assets/report-narrow-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/report-dark.svg">
+  <img src=".github/assets/report-light.svg" alt="Betabound on mobile. Lab test: performance 60, LCP 9.4 seconds. Real visitors: LCP 1.7 seconds is good, INP 287 milliseconds needs work, so Core Web Vitals fail. 24 audits are flagged." width="100%">
+</picture>
+
+### 2. How the skill reads it
+
+The lab says the page takes 9.4 s to show its main content (LCP), but 84% of real visitors already see it quickly. What real visitors actually fail is responsiveness (INP): 287 ms per tap. So the skill:
+
+- **Triages on real visitors.** A lab-only problem on a metric real users already pass goes to the bottom.
+- **Ranks what's left** by Lighthouse's savings estimates, and weighs failing checks that report "0 ms" by how badly their metric fails, so they aren't dropped.
+- **Names an owner for every fix.** Developers get code changes. Marketing ops get tag manager steps. CMS owners (Webflow, WordPress, HubSpot) get click-paths instead of "edit the CSS".
+
+<picture>
+  <source media="(max-width: 1011px) and (prefers-color-scheme: dark)" srcset=".github/assets/read-narrow-dark.svg">
+  <source media="(max-width: 1011px)" srcset=".github/assets/read-narrow-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/read-dark.svg">
+  <img src=".github/assets/read-light.svg" alt="Step 1: LCP is slow in the lab but good for real visitors, so it ranks lower; INP fails for real visitors, so it is fixed first. Step 2: ranked cards with owners. The top cards all move INP; image size is marked lab only and drops to rank 7." width="100%">
+</picture>
+
+### 3. What your coding agent gets
+
+One prompt per area (delivery, media, layout and CSS, scripts, accessibility and SEO), or one all-in-one prompt. Each stands on its own: the context, the exact files and elements the report flagged, the preferred fix, what to avoid, a "done when" check, and guardrails that keep A/B tests, tracking and features working.
+
+<picture>
+  <source media="(max-width: 1011px) and (prefers-color-scheme: dark)" srcset=".github/assets/prompt-narrow-dark.svg">
+  <source media="(max-width: 1011px)" srcset=".github/assets/prompt-narrow-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/prompt-dark.svg">
+  <img src=".github/assets/prompt-light.svg" alt="Excerpt of the scripts prompt for Betabound: context that names INP as the real-visitor failure, guardrails that keep A/B tests and tracking working, and card F1 with the flagged file, preferred fix, what to avoid and a done-when check." width="100%">
+</picture>
 
 ## Use
 

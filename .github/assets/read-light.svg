@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="500" viewBox="0 0 1280 500" role="img" aria-labelledby="t d">
+<title id="t">How lighthouse-fix reads a report</title>
+<desc id="d">Step 1: LCP is slow in the lab but good for real visitors, so it ranks lower; INP fails for real visitors, so it is fixed first. Step 2: ranked cards with owners. The top cards all move INP; image size is marked lab only and drops to rank 7.</desc>
+<style>
+
+.mono { font-family: ui-monospace,'SF Mono',Menlo,Consolas,monospace; }
+.serif { font-family: 'Iowan Old Style','Charter','Palatino Linotype',Georgia,serif; }
+
+.tr0 { animation: tr0 12s linear infinite both; }
+@keyframes tr0 { 0%,4.0% { opacity: 0; } 5.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.tv0 { animation: tv0 12s linear infinite both; }
+@keyframes tv0 { 0%,8.0% { opacity: 0; } 9.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.strike { stroke-dasharray: 60; animation: strike 12s linear infinite both; }
+@keyframes strike { 0%,8% { stroke-dashoffset: 60; } 11%,95% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 60; } }
+.tr1 { animation: tr1 12s linear infinite both; }
+@keyframes tr1 { 0%,13.0% { opacity: 0; } 14.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.tv1 { animation: tv1 12s linear infinite both; }
+@keyframes tv1 { 0%,17.0% { opacity: 0; } 18.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.tr2 { animation: tr2 12s linear infinite both; }
+@keyframes tr2 { 0%,22.0% { opacity: 0; } 23.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.tv2 { animation: tv2 12s linear infinite both; }
+@keyframes tv2 { 0%,26.0% { opacity: 0; } 27.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.verdict { animation: verdict 12s linear infinite both; }
+@keyframes verdict { 0%,36.0% { opacity: 0; } 37.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.k0 { animation: k0 12s cubic-bezier(.2,.7,.2,1) infinite both; }
+@keyframes k0 { 0%,42% { opacity: 0; transform: translateX(24px); } 47%,95% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; } }
+.k1 { animation: k1 12s cubic-bezier(.2,.7,.2,1) infinite both; }
+@keyframes k1 { 0%,47% { opacity: 0; transform: translateX(24px); } 52%,95% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; } }
+.k2 { animation: k2 12s cubic-bezier(.2,.7,.2,1) infinite both; }
+@keyframes k2 { 0%,52% { opacity: 0; transform: translateX(24px); } 57%,95% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; } }
+.k3 { animation: k3 12s cubic-bezier(.2,.7,.2,1) infinite both; }
+@keyframes k3 { 0%,57% { opacity: 0; transform: translateX(24px); } 62%,95% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; } }
+.k4 { animation: k4 12s cubic-bezier(.2,.7,.2,1) infinite both; }
+@keyframes k4 { 0%,62% { opacity: 0; transform: translateX(24px); } 67%,95% { opacity: 0.5; transform: translateX(0); } 100% { opacity: 0; } }
+.more { animation: more 12s linear infinite both; }
+@keyframes more { 0%,70.0% { opacity: 0; } 71.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect width="1280" height="500" rx="18" fill="#EEF2F1"/>
+<g>
+  <polyline points="0,42.9 40,49.4 80,53.2 120,53.2 160,50.7 200,48.3 240,48.1 280,50.4 320,52.9 360,53.2 400,49.6 440,43.2 480,36.5 520,32.4 560,32.3 600,34.7 640,37.3 680,37.7 720,35.7 760,33.1 800,32.6 840,35.9 880,42.3 920,49.0 960,53.3 1000,53.7 1040,51.3 1080,48.6 1120,47.9 1160,49.8 1200,52.3 1240,53.0 1280,50.0 1320,43.8" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,131.0 40,133.9 80,132.3 120,128.0 160,123.7 200,121.6 240,121.4 280,121.2 320,118.6 360,112.6 400,104.6 440,97.8 480,94.6 520,96.0 560,100.3 600,104.7 640,107.1 680,107.5 720,107.6 760,110.0 800,115.8 840,123.6 880,130.6 920,134.0 960,132.8 1000,128.5 1040,123.9 1080,121.3 1120,120.8 1160,120.7 1200,118.5 1240,113.0 1280,105.2 1320,98.1" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,198.5 40,194.5 80,189.0 120,184.7 160,183.5 200,184.8 240,186.3 280,185.5 320,181.7 360,176.6 400,172.8 440,172.8 480,176.6 520,182.2 560,186.7 600,188.1 640,186.9 680,185.4 720,185.9 760,189.4 800,194.6 840,198.4 880,198.7 920,195.1 960,189.5 1000,184.8 1040,183.1 1080,184.2 1120,185.8 1160,185.5 1200,182.2 1240,177.2 1280,173.2 1320,172.6" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,259.7 40,254.6 80,251.6 120,252.0 160,254.9 200,257.6 240,257.7 280,255.0 320,251.0 360,248.7 400,249.8 440,254.2 480,259.5 520,262.7 560,262.5 600,259.7 640,256.9 680,256.5 720,259.1 760,263.0 800,265.5 840,264.6 880,260.4 920,255.1 960,251.6 1000,251.6 1040,254.2 1080,257.2 1120,257.9 1160,255.5 1200,251.6 1240,248.9 1280,249.6 1320,253.6" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,319.1 40,314.8 80,314.7 120,317.4 160,320.1 200,320.9 240,319.5 280,317.8 320,318.6 360,323.2 400,330.5 440,337.9 480,342.4 520,342.7 560,340.1 600,337.2 640,336.2 680,337.4 720,339.0 760,338.4 800,334.1 840,326.9 880,319.5 920,314.8 960,314.2 1000,316.7 1040,319.8 1080,321.1 1120,320.1 1160,318.4 1200,318.8 1240,322.9 1280,329.9 1320,337.5" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,380.7 40,383.2 80,388.2 120,393.0 160,395.4 200,395.7 240,395.8 280,398.2 320,403.7 360,411.0 400,417.1 440,419.3 480,417.1 520,412.1 560,407.1 600,404.4 640,404.0 680,403.9 720,401.8 760,396.5 800,389.3 840,383.1 880,380.6 920,382.6 960,387.6 1000,392.8 1040,395.8 1080,396.4 1120,396.4 1160,398.3 1200,403.3 1240,410.4 1280,416.7 1320,419.4" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,465.5 40,470.9 80,474.6 120,475.1 160,473.0 200,470.7 240,470.7 280,473.8 320,478.3 360,481.6 400,481.4 440,477.6 480,472.3 520,468.3 560,467.6 600,469.5 640,471.9 680,472.1 720,469.3 760,464.8 800,461.4 840,461.3 880,465.0 920,470.3 960,474.5 1000,475.5 1040,473.7 1080,471.2 1120,470.7 1160,473.3 1200,477.7 1240,481.3 1280,481.6 1320,478.2" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+</g>
+<text class="mono" x="64" y="56" font-size="13" letter-spacing="2" fill="#5B6F7C">HOW THE SKILL READS IT</text>
+<rect x="64" y="84" width="540" height="280" rx="12" fill="#F7FAF9" stroke="#D5E0DF"/><text class="mono" x="84" y="114" font-size="12" letter-spacing="1.5" font-weight="700" fill="#5B6F7C">STEP 1 · CHECK EACH METRIC AGAINST REAL VISITORS</text>
+<text class="mono" x="84" y="150" font-size="11.5" letter-spacing="1.5" fill="#5B6F7C"></text>
+<text class="mono" x="154" y="150" font-size="11.5" letter-spacing="1.5" fill="#5B6F7C">LAB</text>
+<text class="mono" x="254" y="150" font-size="11.5" letter-spacing="1.5" fill="#5B6F7C">REAL</text>
+<g class="tr0"><text class="mono" x="84" y="194" font-size="15" font-weight="700" fill="#13293D">LCP</text><text class="mono" x="154" y="194" font-size="15" fill="#C4473A">9.4 s</text><text class="mono" x="254" y="194" font-size="15" font-weight="700" fill="#2F8F5B">1.7 s</text><line class="strike" x1="150" y1="189" x2="210" y2="189" stroke="#13293D" stroke-width="2"/></g><g class="tv0"><text class="mono" x="584" y="194" font-size="13" text-anchor="end" fill="#5B6F7C">lab only · rank lower</text></g>
+<g class="tr1"><text class="mono" x="84" y="252" font-size="15" font-weight="700" fill="#13293D">INP</text><text class="mono" x="154" y="252" font-size="15" fill="#5B6F7C">n/a</text><text class="mono" x="254" y="252" font-size="15" font-weight="700" fill="#C4473A">287 ms</text></g><g class="tv1"><text class="mono" x="584" y="252" font-size="13" text-anchor="end" fill="#C4473A">real visitors fail · fix first</text></g>
+<g class="tr2"><text class="mono" x="84" y="310" font-size="15" font-weight="700" fill="#13293D">CLS</text><text class="mono" x="154" y="310" font-size="15" fill="#2F8F5B">0</text><text class="mono" x="254" y="310" font-size="15" font-weight="700" fill="#2F8F5B">0.08</text></g><g class="tv2"><text class="mono" x="584" y="310" font-size="13" text-anchor="end" fill="#2F8F5B">fine</text></g>
+<g class="verdict"><text class="serif" x="64" y="414" font-size="25" fill="#13293D">“Fails for real visitors on responsiveness.”</text><text class="mono" x="64" y="446" font-size="13.5" fill="#5B6F7C">So every fix that moves INP ranks first.</text></g>
+<text class="mono" x="640" y="96" font-size="12" letter-spacing="1.5" font-weight="700" fill="#5B6F7C">STEP 2 · RANK, AND NAME AN OWNER</text>
+<g class="k0" opacity="1">
+  <rect x="640" y="114" width="576" height="62" rx="10" fill="#F7FAF9" stroke="#D5E0DF"/>
+  <rect x="640" y="114" width="4" height="62" rx="2" fill="#E39A2D"/>
+  <text class="serif" x="662" y="153" font-size="24" fill="#13293D">1</text>
+  <text class="mono" x="698" y="140" font-size="14" fill="#13293D">Outside services (tags, chat, analytics) slow the page.</text>
+  <text class="mono" x="698" y="162" font-size="12.5" fill="#5B6F7C"><tspan font-weight="700" fill="#E39A2D">marketing ops</tspan> · moves INP</text>
+</g>
+<g class="k1" opacity="1">
+  <rect x="640" y="186" width="576" height="62" rx="10" fill="#F7FAF9" stroke="#D5E0DF"/>
+  <rect x="640" y="186" width="4" height="62" rx="2" fill="#E39A2D"/>
+  <text class="serif" x="662" y="225" font-size="24" fill="#13293D">2</text>
+  <text class="mono" x="698" y="212" font-size="14" fill="#13293D">Scripts force the browser to recalculate layout over and over.</text>
+  <text class="mono" x="698" y="234" font-size="12.5" fill="#5B6F7C"><tspan font-weight="700" fill="#E39A2D">developer</tspan> · moves INP</text>
+</g>
+<g class="k2" opacity="1">
+  <rect x="640" y="258" width="576" height="62" rx="10" fill="#F7FAF9" stroke="#D5E0DF"/>
+  <rect x="640" y="258" width="4" height="62" rx="2" fill="#E39A2D"/>
+  <text class="serif" x="662" y="297" font-size="24" fill="#13293D">3</text>
+  <text class="mono" x="698" y="284" font-size="14" fill="#13293D">The page has a very large number of elements.</text>
+  <text class="mono" x="698" y="306" font-size="12.5" fill="#5B6F7C"><tspan font-weight="700" fill="#E39A2D">developer</tspan> · moves INP</text>
+</g>
+<g class="k3" opacity="1">
+  <rect x="640" y="330" width="576" height="62" rx="10" fill="#F7FAF9" stroke="#D5E0DF"/>
+  <rect x="640" y="330" width="4" height="62" rx="2" fill="#E39A2D"/>
+  <text class="serif" x="662" y="369" font-size="24" fill="#13293D">5</text>
+  <text class="mono" x="698" y="356" font-size="14" fill="#13293D">Old-browser code ships to modern browsers who don't need it.</text>
+  <text class="mono" x="698" y="378" font-size="12.5" fill="#5B6F7C"><tspan font-weight="700" fill="#E39A2D">developer</tspan> · moves INP</text>
+</g>
+<g class="k4" opacity="0.5">
+  <rect x="640" y="402" width="576" height="62" rx="10" fill="#F7FAF9" stroke="#D5E0DF"/>
+  <rect x="640" y="402" width="4" height="62" rx="2" fill="#A9B8BF"/>
+  <text class="serif" x="662" y="441" font-size="24" fill="#13293D">7</text>
+  <text class="mono" x="698" y="428" font-size="14" fill="#13293D">Images are bigger files than they need to be.</text>
+  <text class="mono" x="698" y="450" font-size="12.5" fill="#5B6F7C"><tspan font-weight="700" fill="#5B6F7C">content</tspan> · lab only: real visitors pass LCP</text>
+</g>
+<g class="more"><text class="mono" x="640" y="488" font-size="13" fill="#5B6F7C">+ 15 more cards · 2 lower-value findings parked for later</text></g>
+</svg>
