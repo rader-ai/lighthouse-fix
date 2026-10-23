@@ -5,14 +5,14 @@
 
 .mono { font-family: ui-monospace,'SF Mono',Menlo,Consolas,monospace; }
 .serif { font-family: 'Iowan Old Style','Charter','Palatino Linotype',Georgia,serif; }
-.beam { transform-box: view-box; transform-origin: 1192px 176px; transform: rotate(-4deg);
+.beam { transform-box: view-box; transform-origin: 1192px 176px; transform: rotate(-7.5deg);
   animation: sweep 12s linear infinite both; }
 @keyframes sweep {
-  0% { transform: rotate(16deg); opacity: 0; }
+  0% { transform: rotate(15.8deg); opacity: 0; }
   6% { opacity: .95; }
-  50% { transform: rotate(-31deg); opacity: .95; }
-  60% { transform: rotate(-31deg); opacity: 0; }
-  100% { transform: rotate(16deg); opacity: 0; }
+  50% { transform: rotate(-30.9deg); opacity: .95; }
+  60% { transform: rotate(-30.9deg); opacity: 0; }
+  100% { transform: rotate(15.8deg); opacity: 0; }
 }
 .glow { animation: glow 2.4s ease-in-out infinite alternate both; }
 @keyframes glow { from { opacity: .55; } to { opacity: 1; } }
@@ -81,48 +81,48 @@
 <g class="r0">
   <rect class="bg" x="648" y="84" width="404" height="28" rx="6" fill="#FFF0D2"/>
   <rect class="tick" x="648" y="84" width="4" height="28" rx="2" fill="#E39A2D"/>
-  <text class="mono" x="664" y="103" font-size="14" fill="#13293D">Render-blocking requests</text>
-  <text class="mono tag" x="1040" y="103" font-size="12.5" font-weight="700" text-anchor="end" fill="#E39A2D">#2 · developer</text>
+  <text class="mono" x="664" y="103.0" font-size="14" fill="#13293D">Render-blocking requests</text>
+  <text class="mono tag" x="1040" y="103.0" font-size="12.5" font-weight="700" text-anchor="end" fill="#E39A2D">#2 · developer</text>
 </g>
 <g class="r1">
   <rect class="bg" x="648" y="121" width="404" height="28" rx="6" fill="#E2E9E8"/>
-  <text class="mono lbl" x="664" y="140" font-size="14" fill="#5B6F7C" opacity=".38">Legacy JavaScript</text>
-  <text class="mono tag" x="1040" y="140" font-size="12.5" text-anchor="end" fill="#5B6F7C">lab only</text>
+  <text class="mono lbl" x="664" y="140.0" font-size="14" fill="#5B6F7C" opacity=".38">Legacy JavaScript</text>
+  <text class="mono tag" x="1040" y="140.0" font-size="12.5" text-anchor="end" fill="#5B6F7C">lab only</text>
 </g>
 <g class="r2">
   <rect class="bg" x="648" y="158" width="404" height="28" rx="6" fill="#FFF0D2"/>
   <rect class="tick" x="648" y="158" width="4" height="28" rx="2" fill="#E39A2D"/>
-  <text class="mono" x="664" y="177" font-size="14" fill="#13293D">LCP request discovery</text>
-  <text class="mono tag" x="1040" y="177" font-size="12.5" font-weight="700" text-anchor="end" fill="#E39A2D">#1 · developer</text>
+  <text class="mono" x="664" y="177.0" font-size="14" fill="#13293D">LCP request discovery</text>
+  <text class="mono tag" x="1040" y="177.0" font-size="12.5" font-weight="700" text-anchor="end" fill="#E39A2D">#1 · developer</text>
 </g>
 <g class="r3">
   <rect class="bg" x="648" y="195" width="404" height="28" rx="6" fill="#E2E9E8"/>
-  <text class="mono lbl" x="664" y="214" font-size="14" fill="#5B6F7C" opacity=".38">DOM size</text>
-  <text class="mono tag" x="1040" y="214" font-size="12.5" text-anchor="end" fill="#5B6F7C">lab only</text>
+  <text class="mono lbl" x="664" y="214.0" font-size="14" fill="#5B6F7C" opacity=".38">DOM size</text>
+  <text class="mono tag" x="1040" y="214.0" font-size="12.5" text-anchor="end" fill="#5B6F7C">lab only</text>
 </g>
 <g class="r4">
   <rect class="bg" x="648" y="232" width="404" height="28" rx="6" fill="#FFF0D2"/>
   <rect class="tick" x="648" y="232" width="4" height="28" rx="2" fill="#E39A2D"/>
-  <text class="mono" x="664" y="251" font-size="14" fill="#13293D">Third-party tags</text>
-  <text class="mono tag" x="1040" y="251" font-size="12.5" font-weight="700" text-anchor="end" fill="#E39A2D">#3 · marketing ops</text>
+  <text class="mono" x="664" y="251.0" font-size="14" fill="#13293D">Third-party tags</text>
+  <text class="mono tag" x="1040" y="251.0" font-size="12.5" font-weight="700" text-anchor="end" fill="#E39A2D">#3 · marketing ops</text>
 </g>
 <g class="r5">
   <rect class="bg" x="648" y="269" width="404" height="28" rx="6" fill="#E2E9E8"/>
-  <text class="mono lbl" x="664" y="288" font-size="14" fill="#5B6F7C" opacity=".38">Font display</text>
-  <text class="mono tag" x="1040" y="288" font-size="12.5" text-anchor="end" fill="#5B6F7C">lab only</text>
+  <text class="mono lbl" x="664" y="288.0" font-size="14" fill="#5B6F7C" opacity=".38">Font display</text>
+  <text class="mono tag" x="1040" y="288.0" font-size="12.5" text-anchor="end" fill="#5B6F7C">lab only</text>
 </g>
 <g class="r6">
   <rect class="bg" x="648" y="306" width="404" height="28" rx="6" fill="#FFF0D2"/>
   <rect class="tick" x="648" y="306" width="4" height="28" rx="2" fill="#E39A2D"/>
-  <text class="mono" x="664" y="325" font-size="14" fill="#13293D">Layout shift culprits</text>
-  <text class="mono tag" x="1040" y="325" font-size="12.5" font-weight="700" text-anchor="end" fill="#E39A2D">#4 · CMS owner</text>
+  <text class="mono" x="664" y="325.0" font-size="14" fill="#13293D">Layout shift culprits</text>
+  <text class="mono tag" x="1040" y="325.0" font-size="12.5" font-weight="700" text-anchor="end" fill="#E39A2D">#4 · CMS owner</text>
 </g>
 <g class="r7">
   <rect class="bg" x="648" y="343" width="404" height="28" rx="6" fill="#E2E9E8"/>
-  <text class="mono lbl" x="664" y="362" font-size="14" fill="#5B6F7C" opacity=".38">Cache lifetimes</text>
-  <text class="mono tag" x="1040" y="362" font-size="12.5" text-anchor="end" fill="#5B6F7C">lab only</text>
+  <text class="mono lbl" x="664" y="362.0" font-size="14" fill="#5B6F7C" opacity=".38">Cache lifetimes</text>
+  <text class="mono tag" x="1040" y="362.0" font-size="12.5" text-anchor="end" fill="#5B6F7C">lab only</text>
 </g>
-<g>
+<g transform="translate(0 0)">
   <path d="M1110 404 Q1150 372 1192 376 Q1240 372 1272 404 Z" fill="#3B5265"/>
   <path d="M1176 382 L1182 206 L1202 206 L1208 382 Z" fill="#13293D"/>
   <rect x="1180" y="236" width="24" height="9" fill="#EEF2F1" opacity=".9"/>

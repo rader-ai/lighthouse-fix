@@ -1,12 +1,14 @@
 <p align="center">
   <picture>
+    <source media="(max-width: 1011px) and (prefers-color-scheme: dark)" srcset=".github/assets/hero-narrow-dark.svg">
+    <source media="(max-width: 1011px)" srcset=".github/assets/hero-narrow-light.svg">
     <source media="(prefers-color-scheme: dark)" srcset=".github/assets/hero-dark.svg">
     <img src=".github/assets/hero-light.svg" alt="lighthouse-fix: a lighthouse beam sweeps a list of Lighthouse audits. The four that hurt real visitors light up with a rank and an owner; the rest are marked lab only." width="100%">
   </picture>
 </p>
 
 <p align="center">
-  A skill for <b>Claude Code</b>, <b>Codex</b> and <b>ChatGPT</b> that turns a Lighthouse or PageSpeed report into ranked fixes,<br>
+  A skill for <b>Claude Code</b>, <b>Codex</b> and <b>ChatGPT</b> that turns a Lighthouse or PageSpeed report into ranked fixes,
   with real visitors first, plus prompts a coding agent can run as-is. It keeps A/B tests, tracking and features working.
 </p>
 
@@ -25,6 +27,8 @@ Most Lighthouse tools stop at "here are 40 audits". This one gets them fixed.
 ## Does it work?
 
 <picture>
+  <source media="(max-width: 1011px) and (prefers-color-scheme: dark)" srcset=".github/assets/proof-narrow-dark.svg">
+  <source media="(max-width: 1011px)" srcset=".github/assets/proof-narrow-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset=".github/assets/proof-dark.svg">
   <img src=".github/assets/proof-light.svg" alt="Problems fixed out of 19: Haiku 15 to 18, Sonnet 16 to 19, Opus 17 to 19. Blind-graded analysis score: Haiku 74 to 85 percent, Sonnet 85 to 97, Opus 83 to 100." width="100%">
 </picture>
@@ -74,6 +78,8 @@ cp -r lighthouse-fix/skills/lighthouse-fix ~/.claude/skills/
 ## How it works
 
 <picture>
+  <source media="(max-width: 1011px) and (prefers-color-scheme: dark)" srcset=".github/assets/flow-narrow-dark.svg">
+  <source media="(max-width: 1011px)" srcset=".github/assets/flow-narrow-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset=".github/assets/flow-dark.svg">
   <img src=".github/assets/flow-light.svg" alt="Five steps: your report, real-visitor triage, ranking, fix prompts, and routing each fix to its owner." width="100%">
 </picture>

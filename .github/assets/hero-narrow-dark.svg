@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="770" viewBox="0 0 640 770" role="img" aria-labelledby="t d">
+<title id="t">lighthouse-fix</title>
+<desc id="d">A lighthouse beam sweeps a list of Lighthouse audits. Four that hurt real visitors light up and get a rank and an owner; the rest are marked lab only.</desc>
+<style>
+
+.mono { font-family: ui-monospace,'SF Mono',Menlo,Consolas,monospace; }
+.serif { font-family: 'Iowan Old Style','Charter','Palatino Linotype',Georgia,serif; }
+.beam { transform-box: view-box; transform-origin: 570px 470px; transform: rotate(-4.4deg);
+  animation: sweep 12s linear infinite both; }
+@keyframes sweep {
+  0% { transform: rotate(22.7deg); opacity: 0; }
+  6% { opacity: .95; }
+  50% { transform: rotate(-31.6deg); opacity: .95; }
+  60% { transform: rotate(-31.6deg); opacity: 0; }
+  100% { transform: rotate(22.7deg); opacity: 0; }
+}
+.glow { animation: glow 2.4s ease-in-out infinite alternate both; }
+@keyframes glow { from { opacity: .55; } to { opacity: 1; } }
+
+.r0 .bg { animation: r0bg 12s linear infinite both; }
+.r0 .tag, .r0 .tick { animation: r0on 12s linear infinite both; }
+@keyframes r0bg { 0%,7.2% { fill: #152636; } 11.2%,95% { fill: #3A2D14; } 100% { fill: #152636; } }
+@keyframes r0on { 0%,7.2% { opacity: 0; } 11.2%,95% { opacity: 1; } 100% { opacity: 0; } }
+.r1 .bg { animation: r1bg 12s linear infinite both; }
+.r1 .lbl { animation: r1lbl 12s linear infinite both; }
+.r1 .tag { animation: r1tag 12s linear infinite both; }
+@keyframes r1bg { 0%,12.8% { fill: #152636; } 14.8% { fill: #3A2D14; } 20.8%,100% { fill: #152636; } }
+@keyframes r1lbl { 0%,12.8% { opacity: .75; } 20.8%,95% { opacity: .38; } 100% { opacity: .75; } }
+@keyframes r1tag { 0%,16.8% { opacity: 0; } 20.8%,95% { opacity: 1; } 100% { opacity: 0; } }
+.r2 .bg { animation: r2bg 12s linear infinite both; }
+.r2 .tag, .r2 .tick { animation: r2on 12s linear infinite both; }
+@keyframes r2bg { 0%,18.2% { fill: #152636; } 22.2%,95% { fill: #3A2D14; } 100% { fill: #152636; } }
+@keyframes r2on { 0%,18.2% { opacity: 0; } 22.2%,95% { opacity: 1; } 100% { opacity: 0; } }
+.r3 .bg { animation: r3bg 12s linear infinite both; }
+.r3 .lbl { animation: r3lbl 12s linear infinite both; }
+.r3 .tag { animation: r3tag 12s linear infinite both; }
+@keyframes r3bg { 0%,23.8% { fill: #152636; } 25.8% { fill: #3A2D14; } 31.8%,100% { fill: #152636; } }
+@keyframes r3lbl { 0%,23.8% { opacity: .75; } 31.8%,95% { opacity: .38; } 100% { opacity: .75; } }
+@keyframes r3tag { 0%,27.8% { opacity: 0; } 31.8%,95% { opacity: 1; } 100% { opacity: 0; } }
+.r4 .bg { animation: r4bg 12s linear infinite both; }
+.r4 .tag, .r4 .tick { animation: r4on 12s linear infinite both; }
+@keyframes r4bg { 0%,29.2% { fill: #152636; } 33.2%,95% { fill: #3A2D14; } 100% { fill: #152636; } }
+@keyframes r4on { 0%,29.2% { opacity: 0; } 33.2%,95% { opacity: 1; } 100% { opacity: 0; } }
+.r5 .bg { animation: r5bg 12s linear infinite both; }
+.r5 .lbl { animation: r5lbl 12s linear infinite both; }
+.r5 .tag { animation: r5tag 12s linear infinite both; }
+@keyframes r5bg { 0%,34.8% { fill: #152636; } 36.8% { fill: #3A2D14; } 42.8%,100% { fill: #152636; } }
+@keyframes r5lbl { 0%,34.8% { opacity: .75; } 42.8%,95% { opacity: .38; } 100% { opacity: .75; } }
+@keyframes r5tag { 0%,38.8% { opacity: 0; } 42.8%,95% { opacity: 1; } 100% { opacity: 0; } }
+.r6 .bg { animation: r6bg 12s linear infinite both; }
+.r6 .tag, .r6 .tick { animation: r6on 12s linear infinite both; }
+@keyframes r6bg { 0%,40.2% { fill: #152636; } 44.2%,95% { fill: #3A2D14; } 100% { fill: #152636; } }
+@keyframes r6on { 0%,40.2% { opacity: 0; } 44.2%,95% { opacity: 1; } 100% { opacity: 0; } }
+.r7 .bg { animation: r7bg 12s linear infinite both; }
+.r7 .lbl { animation: r7lbl 12s linear infinite both; }
+.r7 .tag { animation: r7tag 12s linear infinite both; }
+@keyframes r7bg { 0%,45.8% { fill: #152636; } 47.8% { fill: #3A2D14; } 53.8%,100% { fill: #152636; } }
+@keyframes r7lbl { 0%,45.8% { opacity: .75; } 53.8%,95% { opacity: .38; } 100% { opacity: .75; } }
+@keyframes r7tag { 0%,49.8% { opacity: 0; } 53.8%,95% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect width="640" height="770" rx="18" fill="#0F1D29"/>
+<g>
+  <polyline points="0,66.0 40,72.6 80,76.4 120,76.3 160,73.8 200,71.4 240,71.3 280,73.5 320,76.1 360,76.3 400,72.8 440,66.3 480,59.6 520,55.6 560,55.4 600,57.9 640,60.4 680,60.8" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,192.7 40,195.6 80,194.0 120,189.7 160,185.4 200,183.3 240,183.1 280,182.9 320,180.3 360,174.3 400,166.4 440,159.5 480,156.3 520,157.7 560,162.0 600,166.5 640,168.9 680,169.2" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,298.8 40,294.8 80,289.2 120,285.0 160,283.8 200,285.1 240,286.6 280,285.8 320,282.0 360,276.9 400,273.1 440,273.1 480,276.9 520,282.5 560,286.9 600,288.4 640,287.2 680,285.6" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,398.6 40,393.4 80,390.4 120,390.9 160,393.7 200,396.4 240,396.6 280,393.8 320,389.8 360,387.5 400,388.7 440,393.1 480,398.3 520,401.6 560,401.4 600,398.6 640,395.8 680,395.3" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,496.5 40,492.3 80,492.1 120,494.8 160,497.5 200,498.3 240,496.9 280,495.3 320,496.1 360,500.6 400,508.0 440,515.3 480,519.8 520,520.1 560,517.5 600,514.6 640,513.6 680,514.8" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,596.7 40,599.2 80,604.2 120,609.0 160,611.4 200,611.7 240,611.8 280,614.2 320,619.7 360,627.0 400,633.1 440,635.3 480,633.1 520,628.1 560,623.1 600,620.4 640,620.0 680,619.9" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,720.1 40,725.4 80,729.2 120,729.7 160,727.6 200,725.3 240,725.3 280,728.4 320,732.9 360,736.2 400,736.0 440,732.2 480,726.8 520,722.9 560,722.1 600,724.1 640,726.5 680,726.7" fill="none" stroke="#18293A" stroke-width="1.2"/>
+</g>
+
+<defs>
+  <linearGradient id="bg" x1="1" y1="0" x2="0" y2="0">
+    <stop offset="0" stop-color="#F5B84A" stop-opacity=".55"/>
+    <stop offset=".75" stop-color="#F5B84A" stop-opacity=".12"/>
+    <stop offset="1" stop-color="#F5B84A" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<polygon class="beam" points="570,466 10,424 10,516 570,474" fill="url(#bg)"/>
+<g class="r0">
+  <rect class="bg" x="40" y="344" width="440" height="30" rx="6" fill="#3A2D14"/>
+  <rect class="tick" x="40" y="344" width="4" height="30" rx="2" fill="#F5B84A"/>
+  <text class="mono" x="56" y="364.0" font-size="14" fill="#E8EEF0">Render-blocking requests</text>
+  <text class="mono tag" x="468" y="364.0" font-size="12.5" font-weight="700" text-anchor="end" fill="#F5B84A">#2 · developer</text>
+</g>
+<g class="r1">
+  <rect class="bg" x="40" y="384" width="440" height="30" rx="6" fill="#152636"/>
+  <text class="mono lbl" x="56" y="404.0" font-size="14" fill="#8DA2B0" opacity=".38">Legacy JavaScript</text>
+  <text class="mono tag" x="468" y="404.0" font-size="12.5" text-anchor="end" fill="#8DA2B0">lab only</text>
+</g>
+<g class="r2">
+  <rect class="bg" x="40" y="424" width="440" height="30" rx="6" fill="#3A2D14"/>
+  <rect class="tick" x="40" y="424" width="4" height="30" rx="2" fill="#F5B84A"/>
+  <text class="mono" x="56" y="444.0" font-size="14" fill="#E8EEF0">LCP request discovery</text>
+  <text class="mono tag" x="468" y="444.0" font-size="12.5" font-weight="700" text-anchor="end" fill="#F5B84A">#1 · developer</text>
+</g>
+<g class="r3">
+  <rect class="bg" x="40" y="464" width="440" height="30" rx="6" fill="#152636"/>
+  <text class="mono lbl" x="56" y="484.0" font-size="14" fill="#8DA2B0" opacity=".38">DOM size</text>
+  <text class="mono tag" x="468" y="484.0" font-size="12.5" text-anchor="end" fill="#8DA2B0">lab only</text>
+</g>
+<g class="r4">
+  <rect class="bg" x="40" y="504" width="440" height="30" rx="6" fill="#3A2D14"/>
+  <rect class="tick" x="40" y="504" width="4" height="30" rx="2" fill="#F5B84A"/>
+  <text class="mono" x="56" y="524.0" font-size="14" fill="#E8EEF0">Third-party tags</text>
+  <text class="mono tag" x="468" y="524.0" font-size="12.5" font-weight="700" text-anchor="end" fill="#F5B84A">#3 · marketing ops</text>
+</g>
+<g class="r5">
+  <rect class="bg" x="40" y="544" width="440" height="30" rx="6" fill="#152636"/>
+  <text class="mono lbl" x="56" y="564.0" font-size="14" fill="#8DA2B0" opacity=".38">Font display</text>
+  <text class="mono tag" x="468" y="564.0" font-size="12.5" text-anchor="end" fill="#8DA2B0">lab only</text>
+</g>
+<g class="r6">
+  <rect class="bg" x="40" y="584" width="440" height="30" rx="6" fill="#3A2D14"/>
+  <rect class="tick" x="40" y="584" width="4" height="30" rx="2" fill="#F5B84A"/>
+  <text class="mono" x="56" y="604.0" font-size="14" fill="#E8EEF0">Layout shift culprits</text>
+  <text class="mono tag" x="468" y="604.0" font-size="12.5" font-weight="700" text-anchor="end" fill="#F5B84A">#4 · CMS owner</text>
+</g>
+<g class="r7">
+  <rect class="bg" x="40" y="624" width="440" height="30" rx="6" fill="#152636"/>
+  <text class="mono lbl" x="56" y="644.0" font-size="14" fill="#8DA2B0" opacity=".38">Cache lifetimes</text>
+  <text class="mono tag" x="468" y="644.0" font-size="12.5" text-anchor="end" fill="#8DA2B0">lab only</text>
+</g>
+<g transform="translate(-622 294)">
+  <path d="M1110 404 Q1150 372 1192 376 Q1240 372 1272 404 Z" fill="#24394C"/>
+  <path d="M1176 382 L1182 206 L1202 206 L1208 382 Z" fill="#C9D5DC"/>
+  <rect x="1180" y="236" width="24" height="9" fill="#0F1D29" opacity=".9"/>
+  <rect x="1179" y="300" width="26" height="9" fill="#0F1D29" opacity=".9"/>
+  <rect x="1176" y="200" width="32" height="7" rx="1" fill="#C9D5DC"/>
+  <rect x="1182" y="168" width="20" height="32" rx="2" fill="#C9D5DC"/>
+  <rect class="glow" x="1185" y="172" width="14" height="22" rx="2" fill="#F5B84A"/>
+  <path d="M1178 168 L1192 154 L1206 168 Z" fill="#C9D5DC"/>
+</g>
+<text class="mono" x="40" y="64" font-size="13" letter-spacing="2" fill="#8DA2B0">LIGHTHOUSE / PAGESPEED REPORT → RANKED FIXES</text>
+<text class="serif" x="38" y="128" font-size="40" fill="#E8EEF0">Forty audits in.</text>
+<text class="serif" x="38" y="176" font-size="40" font-style="italic" fill="#E8EEF0">The few that matter, fixed.</text>
+<text class="mono" x="40" y="214" font-size="15" fill="#8DA2B0">Triaged on real-visitor data. Ranked by savings.</text>
+<text class="mono" x="40" y="238" font-size="15" fill="#8DA2B0">Handed off as prompts a coding agent can run.</text>
+<g class="mono" font-size="13" fill="#E8EEF0">
+  <rect x="40" y="262" width="132" height="30" rx="15" fill="none" stroke="#3E5568"/>
+  <text x="106" y="282" text-anchor="middle">Claude Code</text>
+  <rect x="182" y="262" width="84" height="30" rx="15" fill="none" stroke="#3E5568"/>
+  <text x="224" y="282" text-anchor="middle">Codex</text>
+  <rect x="276" y="262" width="104" height="30" rx="15" fill="none" stroke="#3E5568"/>
+  <text x="328" y="282" text-anchor="middle">ChatGPT</text>
+</g>
+</svg>
