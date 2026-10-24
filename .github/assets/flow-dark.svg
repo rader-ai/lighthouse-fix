@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="310" viewBox="0 0 1280 310" role="img" aria-labelledby="t d">
+<title id="t">How lighthouse-fix works</title>
+<desc id="d">Five steps: your report, real-visitor triage, ranking, fix prompts, and routing each fix to its owner.</desc>
+<style>
+
+.mono { font-family: ui-monospace,'SF Mono',Menlo,Consolas,monospace; }
+.serif { font-family: 'Iowan Old Style','Charter','Palatino Linotype',Georgia,serif; }
+.ship { animation: ship 7s cubic-bezier(.6,0,.4,1) infinite both; }
+@keyframes ship { 0% { transform: translateX(0); opacity: 0; } 5% { opacity: 1; } 85% { transform: translateX(1024px); opacity: 1; } 100% { transform: translateX(1024px); opacity: 0; } }
+
+.s0 { animation: s0 7s linear infinite both; }
+@keyframes s0 { 0%,3.0% { fill: #0F1D29; } 6.0%,96% { fill: #F5B84A; } 100% { fill: #0F1D29; } }
+.s1 { animation: s1 7s linear infinite both; }
+@keyframes s1 { 0%,23.0% { fill: #0F1D29; } 26.0%,96% { fill: #F5B84A; } 100% { fill: #0F1D29; } }
+.s2 { animation: s2 7s linear infinite both; }
+@keyframes s2 { 0%,43.0% { fill: #0F1D29; } 46.0%,96% { fill: #F5B84A; } 100% { fill: #0F1D29; } }
+.s3 { animation: s3 7s linear infinite both; }
+@keyframes s3 { 0%,63.0% { fill: #0F1D29; } 66.0%,96% { fill: #F5B84A; } 100% { fill: #0F1D29; } }
+.s4 { animation: s4 7s linear infinite both; }
+@keyframes s4 { 0%,83.0% { fill: #0F1D29; } 86.0%,96% { fill: #F5B84A; } 100% { fill: #0F1D29; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect width="1280" height="310" rx="18" fill="#0F1D29"/>
+<g>
+  <polyline points="0,26.6 40,33.1 80,36.9 120,36.9 160,34.4 200,32.0 240,31.9 280,34.1 320,36.6 360,36.9 400,33.3 440,26.9 480,20.2 520,16.2 560,16.0 600,18.5 640,21.0 680,21.4 720,19.4 760,16.8 800,16.3 840,19.6 880,26.0 920,32.7 960,37.0 1000,37.4 1040,35.0 1080,32.3 1120,31.6 1160,33.5 1200,36.0 1240,36.7 1280,33.7 1320,27.5" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,87.6 40,90.4 80,88.9 120,84.5 160,80.3 200,78.2 240,78.0 280,77.8 320,75.1 360,69.2 400,61.2 440,54.3 480,51.2 520,52.6 560,56.9 600,61.3 640,63.7 680,64.0 720,64.2 760,66.6 800,72.4 840,80.2 880,87.2 920,90.6 960,89.4 1000,85.1 1040,80.5 1080,77.8 1120,77.4 1160,77.2 1200,75.0 1240,69.5 1280,61.8 1320,54.7" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,127.9 40,123.9 80,118.4 120,114.1 160,113.0 200,114.3 240,115.7 280,114.9 320,111.2 360,106.0 400,102.3 440,102.2 480,106.0 520,111.6 560,116.1 600,117.5 640,116.3 680,114.8 720,115.3 760,118.9 800,124.0 840,127.9 880,128.2 920,124.5 960,118.9 1000,114.3 1040,112.6 1080,113.6 1120,115.2 1160,114.9 1200,111.7 1240,106.6 1280,102.6 1320,102.0" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,162.0 40,156.9 80,153.9 120,154.3 160,157.2 200,159.9 240,160.0 280,157.2 320,153.3 360,150.9 400,152.1 440,156.5 480,161.8 520,165.0 560,164.8 600,162.0 640,159.2 680,158.8 720,161.3 760,165.3 800,167.8 840,166.9 880,162.6 920,157.4 960,153.9 1000,153.8 1040,156.5 1080,159.5 1120,160.1 1160,157.8 1200,153.9 1240,151.2 1280,151.9 1320,155.9" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,194.2 40,190.0 80,189.9 120,192.5 160,195.3 200,196.0 240,194.6 280,193.0 320,193.8 360,198.3 400,205.7 440,213.0 480,217.5 520,217.8 560,215.2 600,212.3 640,211.3 680,212.5 720,214.1 760,213.6 800,209.3 840,202.0 880,194.6 920,189.9 960,189.3 1000,191.9 1040,195.0 1080,196.2 1120,195.2 1160,193.6 1200,194.0 1240,198.0 1280,205.1 1320,212.6" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,228.7 40,231.2 80,236.2 120,241.0 160,243.4 200,243.7 240,243.8 280,246.2 320,251.7 360,259.0 400,265.1 440,267.3 480,265.1 520,260.1 560,255.1 600,252.4 640,252.0 680,251.9 720,249.8 760,244.5 800,237.3 840,231.1 880,228.6 920,230.6 960,235.6 1000,240.8 1040,243.8 1080,244.4 1120,244.4 1160,246.3 1200,251.3 1240,258.4 1280,264.7 1320,267.4" fill="none" stroke="#18293A" stroke-width="1.2"/>
+  <polyline points="0,286.4 40,291.7 80,295.4 120,296.0 160,293.9 200,291.6 240,291.6 280,294.6 320,299.2 360,302.5 400,302.3 440,298.5 480,293.1 520,289.2 560,288.4 600,290.4 640,292.7 680,293.0 720,290.2 760,285.7 800,282.2 840,282.2 880,285.8 920,291.2 960,295.3 1000,296.4 1040,294.5 1080,292.1 1120,291.6 1160,294.2 1200,298.6 1240,302.2 1280,302.5 1320,299.0" fill="none" stroke="#18293A" stroke-width="1.2"/>
+</g>
+
+<text class="mono" x="64" y="56" font-size="13" letter-spacing="2" fill="#8DA2B0">HOW A REPORT BECOMES FIXES</text>
+<line x1="128" y1="128" x2="1152" y2="128" stroke="#3E5568" stroke-width="2" stroke-dasharray="6 7"/>
+<circle class="s0" cx="128" cy="128" r="15" fill="#F5B84A" stroke="#F5B84A" stroke-width="3"/>
+<text class="mono" x="128" y="133" font-size="13" font-weight="700" text-anchor="middle" fill="#E8EEF0">1</text>
+<text class="serif" x="128" y="184" font-size="23" text-anchor="middle" fill="#E8EEF0">Your report</text>
+<text class="mono" x="128" y="216" font-size="15" text-anchor="middle" fill="#8DA2B0">JSON, text, screenshot</text>
+<text class="mono" x="128" y="238" font-size="15" text-anchor="middle" fill="#8DA2B0">or just a URL</text>
+<circle class="s1" cx="384" cy="128" r="15" fill="#F5B84A" stroke="#F5B84A" stroke-width="3"/>
+<text class="mono" x="384" y="133" font-size="13" font-weight="700" text-anchor="middle" fill="#E8EEF0">2</text>
+<text class="serif" x="384" y="184" font-size="23" text-anchor="middle" fill="#E8EEF0">Real visitors</text>
+<text class="mono" x="384" y="216" font-size="15" text-anchor="middle" fill="#8DA2B0">Chrome UX field data</text>
+<text class="mono" x="384" y="238" font-size="15" text-anchor="middle" fill="#8DA2B0">decides what matters</text>
+<circle class="s2" cx="640" cy="128" r="15" fill="#F5B84A" stroke="#F5B84A" stroke-width="3"/>
+<text class="mono" x="640" y="133" font-size="13" font-weight="700" text-anchor="middle" fill="#E8EEF0">3</text>
+<text class="serif" x="640" y="184" font-size="23" text-anchor="middle" fill="#E8EEF0">Rank</text>
+<text class="mono" x="640" y="216" font-size="15" text-anchor="middle" fill="#8DA2B0">by savings, and by how</text>
+<text class="mono" x="640" y="238" font-size="15" text-anchor="middle" fill="#8DA2B0">badly a metric fails</text>
+<circle class="s3" cx="896" cy="128" r="15" fill="#F5B84A" stroke="#F5B84A" stroke-width="3"/>
+<text class="mono" x="896" y="133" font-size="13" font-weight="700" text-anchor="middle" fill="#E8EEF0">4</text>
+<text class="serif" x="896" y="184" font-size="23" text-anchor="middle" fill="#E8EEF0">Fix prompts</text>
+<text class="mono" x="896" y="216" font-size="15" text-anchor="middle" fill="#8DA2B0">one per area, or one</text>
+<text class="mono" x="896" y="238" font-size="15" text-anchor="middle" fill="#8DA2B0">all-in-one prompt</text>
+<circle class="s4" cx="1152" cy="128" r="15" fill="#F5B84A" stroke="#F5B84A" stroke-width="3"/>
+<text class="mono" x="1152" y="133" font-size="13" font-weight="700" text-anchor="middle" fill="#E8EEF0">5</text>
+<text class="serif" x="1152" y="184" font-size="23" text-anchor="middle" fill="#E8EEF0">Right owner</text>
+<text class="mono" x="1152" y="216" font-size="15" text-anchor="middle" fill="#8DA2B0">developer, marketing ops</text>
+<text class="mono" x="1152" y="238" font-size="15" text-anchor="middle" fill="#8DA2B0">or CMS owner</text><circle class="ship" cx="128" cy="128" r="6" fill="#E8EEF0"/>
+</svg>

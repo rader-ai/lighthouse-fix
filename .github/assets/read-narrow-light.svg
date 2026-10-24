@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="910" viewBox="0 0 640 910" role="img" aria-labelledby="t d">
+<title id="t">How lighthouse-fix reads a report</title>
+<desc id="d">Step 1: LCP is slow in the lab but good for real visitors, so it ranks lower; INP fails for real visitors, so it is fixed first. Step 2: ranked cards with owners. The top cards all move INP; image size is marked lab only and drops to rank 7.</desc>
+<style>
+
+.mono { font-family: ui-monospace,'SF Mono',Menlo,Consolas,monospace; }
+.serif { font-family: 'Iowan Old Style','Charter','Palatino Linotype',Georgia,serif; }
+
+.tr0 { animation: tr0 12s linear infinite both; }
+@keyframes tr0 { 0%,4.0% { opacity: 0; } 5.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.tv0 { animation: tv0 12s linear infinite both; }
+@keyframes tv0 { 0%,8.0% { opacity: 0; } 9.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.strike { stroke-dasharray: 60; animation: strike 12s linear infinite both; }
+@keyframes strike { 0%,8% { stroke-dashoffset: 60; } 11%,95% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 60; } }
+.tr1 { animation: tr1 12s linear infinite both; }
+@keyframes tr1 { 0%,13.0% { opacity: 0; } 14.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.tv1 { animation: tv1 12s linear infinite both; }
+@keyframes tv1 { 0%,17.0% { opacity: 0; } 18.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.tr2 { animation: tr2 12s linear infinite both; }
+@keyframes tr2 { 0%,22.0% { opacity: 0; } 23.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.tv2 { animation: tv2 12s linear infinite both; }
+@keyframes tv2 { 0%,26.0% { opacity: 0; } 27.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.verdict { animation: verdict 12s linear infinite both; }
+@keyframes verdict { 0%,36.0% { opacity: 0; } 37.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+.k0 { animation: k0 12s cubic-bezier(.2,.7,.2,1) infinite both; }
+@keyframes k0 { 0%,42% { opacity: 0; transform: translateX(24px); } 47%,95% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; } }
+.k1 { animation: k1 12s cubic-bezier(.2,.7,.2,1) infinite both; }
+@keyframes k1 { 0%,47% { opacity: 0; transform: translateX(24px); } 52%,95% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; } }
+.k2 { animation: k2 12s cubic-bezier(.2,.7,.2,1) infinite both; }
+@keyframes k2 { 0%,52% { opacity: 0; transform: translateX(24px); } 57%,95% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; } }
+.k3 { animation: k3 12s cubic-bezier(.2,.7,.2,1) infinite both; }
+@keyframes k3 { 0%,57% { opacity: 0; transform: translateX(24px); } 62%,95% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; } }
+.k4 { animation: k4 12s cubic-bezier(.2,.7,.2,1) infinite both; }
+@keyframes k4 { 0%,62% { opacity: 0; transform: translateX(24px); } 67%,95% { opacity: 0.5; transform: translateX(0); } 100% { opacity: 0; } }
+.more { animation: more 12s linear infinite both; }
+@keyframes more { 0%,70.0% { opacity: 0; } 71.5%,95% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect width="640" height="910" rx="18" fill="#EEF2F1"/>
+<g>
+  <polyline points="0,78.0 40,84.6 80,88.4 120,88.3 160,85.8 200,83.4 240,83.3 280,85.5 320,88.1 360,88.3 400,84.8 440,78.3 480,71.6 520,67.6 560,67.4 600,69.9 640,72.4 680,72.8" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,224.7 40,227.6 80,226.0 120,221.7 160,217.4 200,215.3 240,215.1 280,214.9 320,212.3 360,206.3 400,198.4 440,191.5 480,188.3 520,189.7 560,194.0 600,198.5 640,200.9 680,201.2" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,350.8 40,346.8 80,341.2 120,337.0 160,335.8 200,337.1 240,338.6 280,337.8 320,334.0 360,328.9 400,325.1 440,325.1 480,328.9 520,334.5 560,338.9 600,340.4 640,339.2 680,337.6" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,470.6 40,465.4 80,462.4 120,462.9 160,465.7 200,468.4 240,468.6 280,465.8 320,461.8 360,459.5 400,460.7 440,465.1 480,470.3 520,473.6 560,473.4 600,470.6 640,467.8 680,467.3" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,588.5 40,584.3 80,584.1 120,586.8 160,589.5 200,590.3 240,588.9 280,587.3 320,588.1 360,592.6 400,600.0 440,607.3 480,611.8 520,612.1 560,609.5 600,606.6 640,605.6 680,606.8" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,708.7 40,711.2 80,716.2 120,721.0 160,723.4 200,723.7 240,723.8 280,726.2 320,731.7 360,739.0 400,745.1 440,747.3 480,745.1 520,740.1 560,735.1 600,732.4 640,732.0 680,731.9" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,852.1 40,857.4 80,861.2 120,861.7 160,859.6 200,857.3 240,857.3 280,860.4 320,864.9 360,868.2 400,868.0 440,864.2 480,858.8 520,854.9 560,854.1 600,856.1 640,858.5 680,858.7" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+</g>
+<text class="mono" x="40" y="56" font-size="13" letter-spacing="2" fill="#5B6F7C">HOW THE SKILL READS IT</text>
+<rect x="40" y="84" width="560" height="280" rx="12" fill="#F7FAF9" stroke="#D5E0DF"/><text class="mono" x="60" y="114" font-size="12" letter-spacing="1.5" font-weight="700" fill="#5B6F7C">STEP 1 · CHECK EACH METRIC AGAINST REAL VISITORS</text>
+<text class="mono" x="60" y="150" font-size="11.5" letter-spacing="1.5" fill="#5B6F7C"></text>
+<text class="mono" x="124" y="150" font-size="11.5" letter-spacing="1.5" fill="#5B6F7C">LAB</text>
+<text class="mono" x="220" y="150" font-size="11.5" letter-spacing="1.5" fill="#5B6F7C">REAL</text>
+<g class="tr0"><text class="mono" x="60" y="194" font-size="15" font-weight="700" fill="#13293D">LCP</text><text class="mono" x="124" y="194" font-size="15" fill="#C4473A">9.4 s</text><text class="mono" x="220" y="194" font-size="15" font-weight="700" fill="#2F8F5B">1.7 s</text><line class="strike" x1="120" y1="189" x2="180" y2="189" stroke="#13293D" stroke-width="2"/></g><g class="tv0"><text class="mono" x="580" y="194" font-size="13" text-anchor="end" fill="#5B6F7C">lab only · rank lower</text></g>
+<g class="tr1"><text class="mono" x="60" y="252" font-size="15" font-weight="700" fill="#13293D">INP</text><text class="mono" x="124" y="252" font-size="15" fill="#5B6F7C">n/a</text><text class="mono" x="220" y="252" font-size="15" font-weight="700" fill="#C4473A">287 ms</text></g><g class="tv1"><text class="mono" x="580" y="252" font-size="13" text-anchor="end" fill="#C4473A">real visitors fail · fix first</text></g>
+<g class="tr2"><text class="mono" x="60" y="310" font-size="15" font-weight="700" fill="#13293D">CLS</text><text class="mono" x="124" y="310" font-size="15" fill="#2F8F5B">0</text><text class="mono" x="220" y="310" font-size="15" font-weight="700" fill="#2F8F5B">0.08</text></g><g class="tv2"><text class="mono" x="580" y="310" font-size="13" text-anchor="end" fill="#2F8F5B">fine</text></g>
+<g class="verdict"><text class="serif" x="40" y="414" font-size="25" fill="#13293D">“Fails for real visitors on responsiveness.”</text><text class="mono" x="40" y="446" font-size="13.5" fill="#5B6F7C">So every fix that moves INP ranks first.</text></g>
+<text class="mono" x="40" y="482" font-size="12" letter-spacing="1.5" font-weight="700" fill="#5B6F7C">STEP 2 · RANK, AND NAME AN OWNER</text>
+<g class="k0" opacity="1">
+  <rect x="40" y="500" width="560" height="62" rx="10" fill="#F7FAF9" stroke="#D5E0DF"/>
+  <rect x="40" y="500" width="4" height="62" rx="2" fill="#E39A2D"/>
+  <text class="serif" x="62" y="539" font-size="24" fill="#13293D">1</text>
+  <text class="mono" x="98" y="526" font-size="14" fill="#13293D">Outside services (tags, chat, analytics) slow the…</text>
+  <text class="mono" x="98" y="548" font-size="12.5" fill="#5B6F7C"><tspan font-weight="700" fill="#E39A2D">marketing ops</tspan> · moves INP</text>
+</g>
+<g class="k1" opacity="1">
+  <rect x="40" y="572" width="560" height="62" rx="10" fill="#F7FAF9" stroke="#D5E0DF"/>
+  <rect x="40" y="572" width="4" height="62" rx="2" fill="#E39A2D"/>
+  <text class="serif" x="62" y="611" font-size="24" fill="#13293D">2</text>
+  <text class="mono" x="98" y="598" font-size="14" fill="#13293D">Scripts force the browser to recalculate layout…</text>
+  <text class="mono" x="98" y="620" font-size="12.5" fill="#5B6F7C"><tspan font-weight="700" fill="#E39A2D">developer</tspan> · moves INP</text>
+</g>
+<g class="k2" opacity="1">
+  <rect x="40" y="644" width="560" height="62" rx="10" fill="#F7FAF9" stroke="#D5E0DF"/>
+  <rect x="40" y="644" width="4" height="62" rx="2" fill="#E39A2D"/>
+  <text class="serif" x="62" y="683" font-size="24" fill="#13293D">3</text>
+  <text class="mono" x="98" y="670" font-size="14" fill="#13293D">The page has a very large number of elements.</text>
+  <text class="mono" x="98" y="692" font-size="12.5" fill="#5B6F7C"><tspan font-weight="700" fill="#E39A2D">developer</tspan> · moves INP</text>
+</g>
+<g class="k3" opacity="1">
+  <rect x="40" y="716" width="560" height="62" rx="10" fill="#F7FAF9" stroke="#D5E0DF"/>
+  <rect x="40" y="716" width="4" height="62" rx="2" fill="#E39A2D"/>
+  <text class="serif" x="62" y="755" font-size="24" fill="#13293D">5</text>
+  <text class="mono" x="98" y="742" font-size="14" fill="#13293D">Old-browser code ships to modern browsers who…</text>
+  <text class="mono" x="98" y="764" font-size="12.5" fill="#5B6F7C"><tspan font-weight="700" fill="#E39A2D">developer</tspan> · moves INP</text>
+</g>
+<g class="k4" opacity="0.5">
+  <rect x="40" y="788" width="560" height="62" rx="10" fill="#F7FAF9" stroke="#D5E0DF"/>
+  <rect x="40" y="788" width="4" height="62" rx="2" fill="#A9B8BF"/>
+  <text class="serif" x="62" y="827" font-size="24" fill="#13293D">7</text>
+  <text class="mono" x="98" y="814" font-size="14" fill="#13293D">Images are bigger files than they need to be.</text>
+  <text class="mono" x="98" y="836" font-size="12.5" fill="#5B6F7C"><tspan font-weight="700" fill="#5B6F7C">content</tspan> · lab only: real visitors pass LCP</text>
+</g>
+<g class="more"><text class="mono" x="40" y="874" font-size="13" fill="#5B6F7C">+ 15 more cards · 2 lower-value findings parked for later</text></g>
+</svg>

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="732" viewBox="0 0 640 732" role="img" aria-labelledby="t d">
+<title id="t">A fix prompt written by lighthouse-fix</title>
+<desc id="d">Excerpt of the scripts prompt for Betabound: context that names INP as the real-visitor failure, guardrails that keep A/B tests and tracking working, and card F1 with the flagged file, preferred fix, what to avoid and a done-when check.</desc>
+<style>
+
+.mono { font-family: ui-monospace,'SF Mono',Menlo,Consolas,monospace; }
+.serif { font-family: 'Iowan Old Style','Charter','Palatino Linotype',Georgia,serif; }
+
+.p0 { animation: p0 14s linear infinite both; }
+@keyframes p0 { 0%,3.0% { opacity: 0; } 4.0%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p1 { animation: p1 14s linear infinite both; }
+@keyframes p1 { 0%,5.8% { opacity: 0; } 6.8%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p2 { animation: p2 14s linear infinite both; }
+@keyframes p2 { 0%,8.6% { opacity: 0; } 9.6%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p3 { animation: p3 14s linear infinite both; }
+@keyframes p3 { 0%,11.3% { opacity: 0; } 12.3%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p4 { animation: p4 14s linear infinite both; }
+@keyframes p4 { 0%,14.1% { opacity: 0; } 15.1%,95% { opacity: 1; } 100% { opacity: 0; } }
+.m4 { animation: m4 14s linear infinite both; }
+@keyframes m4 { 0%,60% { opacity: 0; } 63%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p5 { animation: p5 14s linear infinite both; }
+@keyframes p5 { 0%,16.9% { opacity: 0; } 17.9%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p6 { animation: p6 14s linear infinite both; }
+@keyframes p6 { 0%,19.7% { opacity: 0; } 20.7%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p7 { animation: p7 14s linear infinite both; }
+@keyframes p7 { 0%,22.4% { opacity: 0; } 23.4%,95% { opacity: 1; } 100% { opacity: 0; } }
+.m7 { animation: m7 14s linear infinite both; }
+@keyframes m7 { 0%,66% { opacity: 0; } 69%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p8 { animation: p8 14s linear infinite both; }
+@keyframes p8 { 0%,25.2% { opacity: 0; } 26.2%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p9 { animation: p9 14s linear infinite both; }
+@keyframes p9 { 0%,28.0% { opacity: 0; } 29.0%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p10 { animation: p10 14s linear infinite both; }
+@keyframes p10 { 0%,30.8% { opacity: 0; } 31.8%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p11 { animation: p11 14s linear infinite both; }
+@keyframes p11 { 0%,33.6% { opacity: 0; } 34.6%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p12 { animation: p12 14s linear infinite both; }
+@keyframes p12 { 0%,36.3% { opacity: 0; } 37.3%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p13 { animation: p13 14s linear infinite both; }
+@keyframes p13 { 0%,39.1% { opacity: 0; } 40.1%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p14 { animation: p14 14s linear infinite both; }
+@keyframes p14 { 0%,41.9% { opacity: 0; } 42.9%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p15 { animation: p15 14s linear infinite both; }
+@keyframes p15 { 0%,44.7% { opacity: 0; } 45.7%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p16 { animation: p16 14s linear infinite both; }
+@keyframes p16 { 0%,47.4% { opacity: 0; } 48.4%,95% { opacity: 1; } 100% { opacity: 0; } }
+.m16 { animation: m16 14s linear infinite both; }
+@keyframes m16 { 0%,60% { opacity: 0; } 63%,95% { opacity: 1; } 100% { opacity: 0; } }
+.p17 { animation: p17 14s linear infinite both; }
+@keyframes p17 { 0%,50.2% { opacity: 0; } 51.2%,95% { opacity: 1; } 100% { opacity: 0; } }
+.m17 { animation: m17 14s linear infinite both; }
+@keyframes m17 { 0%,62% { opacity: 0; } 65%,95% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect width="640" height="732" rx="18" fill="#EEF2F1"/>
+<g>
+  <polyline points="0,62.7 40,69.3 80,73.1 120,73.1 160,70.5 200,68.2 240,68.0 280,70.2 320,72.8 360,73.0 400,69.5 440,63.0 480,56.4 520,52.3 560,52.1 600,54.6 640,57.2 680,57.6" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,184.0 40,186.9 80,185.3 120,181.0 160,176.8 200,174.6 240,174.5 280,174.3 320,171.6 360,165.6 400,157.7 440,150.8 480,147.6 520,149.0 560,153.4 600,157.8 640,160.2 680,160.5" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,284.7 40,280.7 80,275.1 120,270.9 160,269.7 200,271.0 240,272.5 280,271.7 320,267.9 360,262.7 400,259.0 440,259.0 480,262.8 520,268.4 560,272.8 600,274.3 640,273.1 680,271.5" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,379.1 40,373.9 80,370.9 120,371.3 160,374.2 200,376.9 240,377.0 280,374.3 320,370.3 360,368.0 400,369.2 440,373.5 480,378.8 520,382.0 560,381.8 600,379.0 640,376.2 680,375.8" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,471.5 40,467.3 80,467.2 120,469.8 160,472.6 200,473.3 240,471.9 280,470.3 320,471.1 360,475.6 400,483.0 440,490.4 480,494.8 520,495.2 560,492.6 600,489.6 640,488.6 680,489.8" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,566.3 40,568.8 80,573.8 120,578.6 160,581.0 200,581.3 240,581.4 280,583.8 320,589.3 360,596.6 400,602.7 440,604.9 480,602.7 520,597.7 560,592.7 600,590.0 640,589.6 680,589.5" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+  <polyline points="0,684.3 40,689.6 80,693.3 120,693.8 160,691.8 200,689.5 240,689.5 280,692.5 320,697.1 360,700.4 400,700.2 440,696.3 480,691.0 520,687.1 560,686.3 600,688.3 640,690.6 680,690.9" fill="none" stroke="#D3DFDD" stroke-width="1.2"/>
+</g>
+<text class="mono" x="40" y="52" font-size="13" letter-spacing="2" fill="#5B6F7C">WHAT YOUR CODING AGENT GETS</text>
+<rect x="40" y="76" width="560" height="616" rx="12" fill="#F7FAF9" stroke="#D5E0DF"/>
+<circle cx="62" cy="98" r="5" fill="#A9B8BF"/>
+<circle cx="80" cy="98" r="5" fill="#A9B8BF"/>
+<circle cx="98" cy="98" r="5" fill="#A9B8BF"/>
+<rect x="60" y="116" width="133" height="30" rx="7" fill="none" stroke="#D5E0DF"/><text class="mono" x="126" y="136" font-size="13" text-anchor="middle" font-weight="400" fill="#5B6F7C">all-in-one.md</text>
+<rect x="200.6" y="116" width="108" height="30" rx="7" fill="#FFF0D2" stroke="#E39A2D"/><text class="mono" x="255" y="136" font-size="13" text-anchor="middle" font-weight="700" fill="#13293D">scripts.md</text>
+<rect x="316.6" y="116" width="92" height="30" rx="7" fill="none" stroke="#D5E0DF"/><text class="mono" x="362" y="136" font-size="13" text-anchor="middle" font-weight="400" fill="#5B6F7C">media.md</text>
+<rect x="416.20000000000005" y="116" width="34" height="30" rx="7" fill="none" stroke="#D5E0DF"/><text class="mono" x="433" y="136" font-size="13" text-anchor="middle" font-weight="400" fill="#5B6F7C">…</text>
+<g class="p0"><text class="mono" x="68" y="182" font-size="14.5" font-weight="700" fill="#13293D" xml:space="preserve"># Fix the Scripts findings</text></g>
+<g class="p1"><text class="mono" x="68" y="209" font-size="14.5" font-weight="700" fill="#E39A2D" xml:space="preserve">## Context</text></g>
+<g class="p2"><text class="mono" x="68" y="236" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">Real visitors (p75): LCP 1700 ms good,</text></g>
+<g class="p3"><text class="mono" x="68" y="263" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">INP 287 ms needs-improvement.</text></g>
+<g class="m4"><rect x="54" y="270" width="532" height="27" rx="5" fill="#FFF0D2"/><rect x="54" y="270" width="3" height="27" fill="#E39A2D"/></g><g class="p4"><text class="mono" x="68" y="290" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">Failing for real users: INP. Fix those first.</text></g>
+<g class="p5"><text class="mono" x="68" y="317" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">Platform: WordPress (theme, functions.php).</text></g>
+<g class="p6"><text class="mono" x="68" y="344" font-size="14.5" font-weight="700" fill="#E39A2D" xml:space="preserve">## Guardrails</text></g>
+<g class="m7"><rect x="54" y="351" width="532" height="27" rx="5" fill="#FFF0D2"/><rect x="54" y="351" width="3" height="27" fill="#E39A2D"/></g><g class="p7"><text class="mono" x="68" y="371" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">- Every A/B variant still renders and tracks.</text></g>
+<g class="p8"><text class="mono" x="68" y="398" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">- Change how other teams' code loads,</text></g>
+<g class="p9"><text class="mono" x="68" y="425" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">  not what it does.</text></g>
+<g class="p10"><text class="mono" x="68" y="452" font-size="14.5" font-weight="700" fill="#E39A2D" xml:space="preserve">## Cards</text></g>
+<g class="p11"><text class="mono" x="68" y="479" font-size="14.5" font-weight="700" fill="#E39A2D" xml:space="preserve">### F1 · Outside services slow the page.</text></g>
+<g class="p12"><text class="mono" x="68" y="506" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">Moves: INP · Owner: marketing-ops · Rank 1</text></g>
+<g class="p13"><text class="mono" x="68" y="533" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">- googletagmanager.com/gtag/js | 237 ms</text></g>
+<g class="p14"><text class="mono" x="68" y="560" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">Preferred fix: load after interaction or</text></g>
+<g class="p15"><text class="mono" x="68" y="587" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">  on consent; remove unused tags.</text></g>
+<g class="m16"><rect x="54" y="594" width="532" height="27" rx="5" fill="#FFF0D2"/><rect x="54" y="594" width="3" height="27" fill="#E39A2D"/></g><g class="p16"><text class="mono" x="68" y="614" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">Avoid: never silently remove tracking.</text></g>
+<g class="m17"><rect x="54" y="621" width="532" height="27" rx="5" fill="#FFF0D2"/><rect x="54" y="621" width="3" height="27" fill="#E39A2D"/></g><g class="p17"><text class="mono" x="68" y="641" font-size="14.5" font-weight="400" fill="#13293D" xml:space="preserve">Done when: third-party main-thread time drops.</text></g>
+</svg>
